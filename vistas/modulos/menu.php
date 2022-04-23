@@ -23,7 +23,7 @@
 
 				<a href="usuario">
 
-					<i class="fa fa-users"></i>
+					<i class="fa fa-user"></i>
 					<span>Usuario</span>
 
 
@@ -84,7 +84,7 @@
 
 					<span class="pull-right-container">
 						
-						<i class="fa fa-angle-left pull-rinht"></i>
+						<i class="fa fa-angle-left pull-right"></i>
 
 					</span>
 
@@ -95,7 +95,7 @@
 					
 					<li>
 						
-						<a href="ventas">
+						<a href="">
 
 							<i class="fa fa-circle-o"></i>
 							<span>Administrar venta</span>
@@ -106,7 +106,7 @@
 
 					<li>
 						
-						<a href="crear-venta">
+						<a href="">
 
 							<i class="fa fa-circle-o"></i>
 							<span>Crear venta</span>
@@ -116,9 +116,9 @@
 
 					</li>
 
-					<li>s
+					<li>
 						
-						<a href="reportes">
+						<a href="">
 
 
 							<i class="fa fa-circle-o"></i>

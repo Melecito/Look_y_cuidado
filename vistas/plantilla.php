@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+
+?>
+    
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -62,7 +70,7 @@
 
         <?php
 
-        if (isset($_SESSION['iniciarSesion']) && $_SESSION['iniciarSesion'] == "ok") {    
+        if (isset($_SESSION['iniciarSesion']) && ($_SESSION['iniciarSesion']) == "ok") {    
 
                        
              echo '<div class="wrapper">';
@@ -101,7 +109,8 @@
             $_GET['ruta']=="clientes"||
             $_GET['ruta']=="ventas"||
             $_GET['ruta']=="reportes"||
-            $_GET['ruta']=="crear-venta") {
+            $_GET['ruta']=="crear-venta"||
+            $_GET['ruta']=="salir") {
 
             include "modulos/".$_GET['ruta'].".php";
           }else{
@@ -132,7 +141,7 @@
       <!-- =============================================== -->    
 
 
-    <script src="vista/js/plantilla.js"></script>
+    <script src="vistas/js/plantilla.js"></script>
     </body>
 
 </html>

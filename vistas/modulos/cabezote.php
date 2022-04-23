@@ -18,7 +18,7 @@
 
 			<!-- logo normal -->
 
-			<span class="logo-normal">
+			<span class="logo-lg">
 				
 
 				<img src="vistas/img/plantilla/logo-blanco-lineal.png" class="img-responsive" style="padding: 10px 0px;">
@@ -72,7 +72,7 @@
 
 									<div class="pull-right">
 
-										<a href="" class="btn btn-default btn-flat">Salir</a>
+										<a href="salir" class="btn btn-default btn-flat">Salir</a>
 										
 									</div>				
 
