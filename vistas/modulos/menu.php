@@ -19,7 +19,7 @@
 
 			</li>
 
-			<li class="">
+			<li>
 
 				<a href="usuario">
 
@@ -33,7 +33,7 @@
 			</li>
 
 
-			<li class="">
+			<li>
 
 				<a href="categorias">
 
@@ -46,7 +46,7 @@
 
 			</li>
 
-			<li class="">
+			<li>
 
 				<a href="productos">
 
@@ -77,9 +77,10 @@
 
 			<li class="treeview">
 
-				<a href="">
+				<a href="#">
 
 					<i class="fa fa-list-ul"></i>
+
 					<span>Ventas</span>
 
 					<span class="pull-right-container">
@@ -95,10 +96,10 @@
 					
 					<li>
 						
-						<a href="">
+						<a href="ventas">
 
 							<i class="fa fa-circle-o"></i>
-							<span>Administrar venta</span>
+							<span>Administrar ventas</span>
 
 						</a>
 
@@ -106,7 +107,7 @@
 
 					<li>
 						
-						<a href="">
+						<a href="crear-venta">
 
 							<i class="fa fa-circle-o"></i>
 							<span>Crear venta</span>
@@ -118,7 +119,7 @@
 
 					<li>
 						
-						<a href="">
+						<a href="reportes">
 
 
 							<i class="fa fa-circle-o"></i>

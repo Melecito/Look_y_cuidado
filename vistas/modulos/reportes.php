@@ -5,7 +5,7 @@
 
 
       <h1>
-       Reporte de venta
+       Reporte de ventas
 
         
 
@@ -13,7 +13,7 @@
 
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li class="active">Reporte de venta</li>
+        <li class="active">Reporte de ventas</li>
       </ol>
 
     </section>

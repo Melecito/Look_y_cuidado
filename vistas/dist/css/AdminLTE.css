@@ -1415,7 +1415,7 @@ a:focus {
   display: inline-block;
   margin-right: 10px;
 }
-.progress.vertical > .progress-bar {
+.progress.vertical.progress-bar {
   width: 100%;
   position: absolute;
   bottom: 0;
