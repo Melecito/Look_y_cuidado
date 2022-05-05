@@ -18,46 +18,88 @@
 
 
 			</li>
+			<li>
+
+				<a href="usuario">
+
+					<i class="fa fa-user"></i>
+					<span>Administrador</span>
+
+
+				</a>
+
+
+			</li>
 
 			<li>
 
 				<a href="usuario">
 
 					<i class="fa fa-user"></i>
-					<span>Usuario</span>
+					<span>Empleado</span>
 
 
 				</a>
 
 
 			</li>
+			
+			<li class="treeview">
 
+				<a href="#">
 
-			<li>
+					<i class="fa fa-list-ul"></i>
 
-				<a href="categorias">
-
-					<i class="fa fa-th"></i>
-					<span>Categorias</span>
-
-
-				</a>
-
-
-			</li>
-
-			<li>
-
-				<a href="productos">
-
-					<i class="fa fa-product-hunt"></i>
 					<span>Productos</span>
 
+					<span class="pull-right-container">
+						
+						<i class="fa fa-angle-left pull-right"></i>
+
+					</span>
+
 
 				</a>
 
+				<ul class="treeview-menu">
+					
+					<li>
+						
+						<a href="ventas">
 
-			</li>
+							<i class="fa fa-circle-o"></i>
+							<span>Medicinas</span>
+
+						</a>
+
+					</li>
+
+					<li>
+						
+						<a href="crear-venta">
+
+							<i class="fa fa-circle-o"></i>
+							<span>Belleza</span>
+
+
+						</a>
+
+					</li>
+
+					<li>
+						
+						<a href="reportes">
+
+
+							<i class="fa fa-circle-o"></i>
+							<span>Varios</span>
+
+						</a>
+
+					</li>
+
+				</ul>
+
 
 			</li>
 
@@ -74,6 +116,77 @@
 
 			</li>
 
+
+			<li class="treeview">
+
+				<a href="#">
+
+					 <i class="fa-light fa-user"></i>
+
+					<span>Citas</span>
+
+					<span class="pull-right-container">
+						
+						<i class="fa fa-angle-left pull-right"></i>
+
+					</span>
+
+
+				</a>
+
+				<ul class="treeview-menu">
+					
+					<li>
+						
+						<a href="ventas">
+
+							<i class="fa fa-circle-o"></i>
+							<span>Administrar cita</span>
+
+						</a>
+
+					</li>
+
+					<li>
+						
+						<a href="crear-venta">
+
+							<i class="fa fa-circle-o"></i>
+							<span>Reprogramar cita</span>
+
+
+						</a>
+
+					</li>
+
+					<li>
+						
+						<a href="reportes">
+
+
+							<i class="fa fa-circle-o"></i>
+							<span>Cancelar cita</span>
+
+						</a>
+
+					</li>
+
+					<li>
+						
+						<a href="reportes">
+
+
+							<i class="fa fa-circle-o"></i>
+							<span>Reporte de cita</span>
+
+						</a>
+
+					</li>
+
+				</ul>
+
+
+			</li>
 
 			<li class="treeview">
 
@@ -132,7 +245,66 @@
 				</ul>
 
 
-			</li>		
+			</li>
+
+			<li class="treeview">
+
+				<a href="#">
+
+					<i class="fa fa-list-ul"></i>
+
+					<span>Pedidos</span>
+
+					<span class="pull-right-container">
+						
+						<i class="fa fa-angle-left pull-right"></i>
+
+					</span>
+
+
+				</a>
+
+				<ul class="treeview-menu">
+					
+					<li>
+						
+						<a href="ventas">
+
+							<i class="fa fa-circle-o"></i>
+							<span>Administrar Pedidos</span>
+
+						</a>
+
+					</li>
+
+					<li>
+						
+						<a href="crear-venta">
+
+							<i class="fa fa-circle-o"></i>
+							<span>Crear crear pedidos</span>
+
+
+						</a>
+
+					</li>
+
+					<li>
+						
+						<a href="reportes">
+
+
+							<i class="fa fa-circle-o"></i>
+							<span>Reporte de pedidos</span>
+
+						</a>
+
+					</li>
+
+				</ul>
+
+
+			</li>
 
 
 		</ul>
