@@ -5,14 +5,14 @@
 
 
       <h1>
-        Administrar categorias
+        Administrar pedidos
 
-        
+
       </h1>
 
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li class="active">Administrar categorias</li>
+        <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li class="active">Administrar pedidos</li>
       </ol>
 
     </section>
@@ -41,7 +41,7 @@
         <div class="box-body">
           Start creating your amazing application!
         </div>
-
+        
         <!-- /.box-body -->
         <div class="box-footer">
           Footer

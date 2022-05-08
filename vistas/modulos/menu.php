@@ -36,7 +36,7 @@
 				<a href="usuario">
 
 					<i class="fa fa-user"></i>
-					<span>Empleado</span>
+					<span>Usuario</span>
 
 
 				</a>
@@ -65,7 +65,7 @@
 					
 					<li>
 						
-						<a href="ventas">
+						<a href="medicinas">
 
 							<i class="fa fa-circle-o"></i>
 							<span>Medicinas</span>
@@ -76,7 +76,7 @@
 
 					<li>
 						
-						<a href="crear-venta">
+						<a href="belleza">
 
 							<i class="fa fa-circle-o"></i>
 							<span>Belleza</span>
@@ -88,7 +88,7 @@
 
 					<li>
 						
-						<a href="reportes">
+						<a href="varios">
 
 
 							<i class="fa fa-circle-o"></i>
@@ -249,7 +249,7 @@
 
 			<li class="treeview">
 
-				<a href="#">
+				<a href="pedidos">
 
 					<i class="fa fa-list-ul"></i>
 
@@ -268,7 +268,7 @@
 					
 					<li>
 						
-						<a href="ventas">
+						<a href="pedidos">
 
 							<i class="fa fa-circle-o"></i>
 							<span>Administrar Pedidos</span>
@@ -279,7 +279,7 @@
 
 					<li>
 						
-						<a href="crear-venta">
+						<a href="crear-pedidos">
 
 							<i class="fa fa-circle-o"></i>
 							<span>Crear crear pedidos</span>
@@ -291,7 +291,7 @@
 
 					<li>
 						
-						<a href="reportes">
+						<a href="reportePedidos">
 
 
 							<i class="fa fa-circle-o"></i>

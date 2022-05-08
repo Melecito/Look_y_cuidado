@@ -7,11 +7,11 @@
       <h1>
         Administrar productos
 
-
+        
       </h1>
 
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
         <li class="active">Administrar productos</li>
       </ol>
 
@@ -41,7 +41,7 @@
         <div class="box-body">
           Start creating your amazing application!
         </div>
-        
+
         <!-- /.box-body -->
         <div class="box-footer">
           Footer

@@ -5,14 +5,15 @@
 
 
       <h1>
-        Administrar clientes
+        Crear pedidos
 
+        <small>Crear pedidos</small>
 
       </h1>
 
       <ol class="breadcrumb">
         <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li class="active">Administrar clientes</li>
+        <li class="active">Crear pedidos</li>
       </ol>
 
     </section>
@@ -57,3 +58,4 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+

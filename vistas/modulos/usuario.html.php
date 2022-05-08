@@ -35,13 +35,13 @@
 
         <div class="box-body">
           
-          <table class="table table-bordered table-striped dt-responsive tablas">
+          <table class="table table-bordered table-striped dt-responsive-responsive tablas">
             
             <thead>
               
               <tr>
                 
-                <th style="width: 10px;">#</th>
+                <th>#</th>
                 <th>Nombre</th>
                 <th>Usuario</th>
                 <th>Foto</th>
@@ -105,7 +105,7 @@
   
 
   <!-- The Modal -->
-  <div class="modal fade" id="modalAgregarUsuario" role="dialog">
+  <div class="modal" id="modalAgregarUsuario">
     
     <div class="modal-dialog">
       
@@ -124,8 +124,6 @@
           <div class="modal-body">
 
             <div class="box-body">
-
-               <!-- AGREGAR NOMBRE-->
               
               <div class="form-group">
                    <div class="input-group">
@@ -137,8 +135,7 @@
               </div>
 
                 
-                
-                 <!--AGREGAR USUARIO-->
+                 <!-- AGREGAR NOMBRE-->
                 
 
                
@@ -152,8 +149,7 @@
                   
                  </div>  
                 </div>                
-                  
-                   <!--AGREGAR CONTRASEÑA-->
+                  <!--AGREGAR USUARIO-->
                 
 
                 
@@ -165,10 +161,10 @@
                   <input type="password" class="form-control input-lg" name="nuevopassword" placeholder="Ingresar contraseña" required>
                   
                 </div>
-              </div>        
-
+              </div>             
                               
-                  <!--AGREGAR perfil-->              
+                  <!--AGREGAR CONTRASEÑA-->
+                
 
                 
 
@@ -179,8 +175,6 @@
                   <span class="input-group-addon"><i class="fa fa-users"></i></span>
 
                   <select class="form-control input-lg" name="nuevoPerfil">
-
-                    <option value="">Seleccione perfil</option>
 
                     <option value="Administrador">Administrador</option>
 
@@ -200,7 +194,7 @@
                  </div>
               </div>
 
-                 <!--Subir foto-->           
+                 <!--AGREGAR PERFIL-->            
 
                 
 
@@ -208,13 +202,13 @@
                 <div class="form-group">
                     <div class="panel">SUBIR FOTO</div>
 
-                  <input type="file" class="nuevaFoto" name="nuevaFoto">
+                  <input type="file" id="nuevaFoto" name="nuevaFoto">
 
-                  <p class="help-block">Peso maximo de la foto 2 MB</p>
+                  <p class="help-block">Peso maximo de la foto 200 MB</p>
 
-                  <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
+                  <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail" width="100px">
               </div>
-                        
+                <!--Subir foto-->         
                 
 
               </div>
@@ -231,14 +225,6 @@
             <button type="submit" class="btn btn-primary">Guardar usuario</button>
 
           </div>
-
-          <?php
-
-          $crearUsuario = new ControladorUsuarios();
-          $crearUsuario -> ctrCrearUsuario();
-          
-
-          ?>
       </form>
 
       </div>

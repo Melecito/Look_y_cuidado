@@ -5,14 +5,14 @@
 
 
       <h1>
-        Administrar clientes
+        Reporte de pedidos
 
 
       </h1>
 
       <ol class="breadcrumb">
         <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li class="active">Administrar clientes</li>
+        <li class="active">Reporte de pedidos</li>
       </ol>
 
     </section>
