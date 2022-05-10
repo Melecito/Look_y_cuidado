@@ -51,34 +51,84 @@ class ControladorUsuarios{
 				/******************************
 				*Validar imagen
 				******************************/
+				$ruta = "";
 
-				if (isset($_FILES['nuevaFoto']["tmp_name"])) {
+				if (isset($_FILES["nuevaFoto"]["tmp_name"])) {
 
-					list($ancho, $alto) = getimagesize($_FILES['nuevaFoto']["tmp_name"]);
+					list($ancho, $alto) = getimagesize($_FILES["nuevaFoto"]["tmp_name"]);
 
 					$nuevoAncho = 500;
 					$nuevoAlto = 500;
+
+					/*************************************
+					 * Crear directorio para guardar foto
+					 * ***************************/
 
 
 					$directorio = "vistas/img/usuarios/".$_POST["nuevousuario"];
 
 					mkdir($directorio, 0755);
 
-					if ($_FILES['nuevaFoto']["type"] == "image/jpeg") {
+					/********************************
+					 * de acuerdo a tipo de formato *
+					 * *****************************/
+
+					if ($_FILES["nuevaFoto"]["type"] == "image/jpeg") {
+
+					/********************************
+					 * guardar imagen en directorio *
+					 * *****************************/
+
 
 
 						$aleatorio = mt_rand(100,999);
 
-						$ruta = "vistas/img/usuarios/".$_POST["nuevousuario"]."".$aleatorio.".jpeg";
+						$ruta = $directorio."/".$aleatorio.".jpeg";
 
 						$origen = imagecreatefromjpeg($_FILES["nuevaFoto"]["tmp_name"]);
 
 
 						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
+						
+
+
 						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
 
 						imagejpeg($destino, $ruta);
+
+						
+
+
+
+
+					}
+
+					if ($_FILES["nuevaFoto"]["type"] == "image/png") {
+
+					/********************************
+					 * guardar imagen en directorio *
+					 * *****************************/
+
+
+
+						$aleatorio = mt_rand(100,999);
+
+						$ruta = $directorio."/".$aleatorio.".png";
+
+						$origen = imagecreatefrompng($_FILES["nuevaFoto"]["tmp_name"]);
+
+
+						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+
+						
+
+
+						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+
+						imagepng($destino, $ruta);
+
+						
 
 
 
@@ -89,12 +139,14 @@ class ControladorUsuarios{
 
 
 
-				/*$tabla = "usuarios";
+				$tabla = "usuarios";
 
 				$datos = array("nombre" => $_POST["nuevonombre"],
 								"usuario" => $_POST["nuevousuario"],
 								"password" => $_POST["nuevopassword"],
-								"perfil" => $_POST["nuevoPerfil"]);
+								"perfil" => $_POST["nuevoPerfil"],
+								"foto" => $ruta);
+
 
 
 				$respuesta = ModeloUsuarios::mdlIngresarUsuario($tabla, $datos);
@@ -128,7 +180,7 @@ class ControladorUsuarios{
 
 
 				</script>';
-				}*/
+				}
 
 
 
