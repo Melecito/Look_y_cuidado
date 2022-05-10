@@ -121,7 +121,7 @@
 
 				<a href="#">
 
-					 <i class="fa-light fa-user"></i>
+					 <i class="fa fa-book-medical"></i>
 
 					<span>Citas</span>
 
