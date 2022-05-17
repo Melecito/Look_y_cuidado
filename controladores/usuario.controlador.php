@@ -2,8 +2,7 @@
 
 class ControladorUsuarios{
 
-
-	static public function ctrIngresoUsuario(){
+	public function ctrIngresoUsuario(){
 
 		if (isset($_POST["ingUsuario"])) {
 
@@ -87,7 +86,7 @@ class ControladorUsuarios{
 	}
 
 
-	static public function ctrCrearUsuario(){
+	public function ctrCrearUsuario(){
 
 		if(isset($_POST["nuevousuario"])){
 
@@ -282,7 +281,7 @@ class ControladorUsuarios{
 	 * ************************/
 
 
-	static public function ctrMostrarUsuarios($item, $valor){
+	public function ctrMostrarUsuarios($item, $valor){
 
 		$tabla ="usuarios";
 
@@ -534,5 +533,66 @@ class ControladorUsuarios{
 		}
 	}
 
+	/********************************
+	* Borrar usuario *
+	* *****************************/
+
+	public function ctrBorrarUsuario(){
+
+
+		if (isset($_GET['idUsuario'])) {
+
+			$tabla = "usuarios";
+			$datos = $_GET['idUsuario'];
+
+			if ($_GET['fotoUsuario'] != "") {
+
+				unlink($_GET['foto']);
+				rmdir('vistas/img/usuarios/'.$_GET["usuario"]);
+
+
+			}
+
+			$respuesta = ModeloUsuarios::mdlBorrarUsuario($tabla, $datos);
+
+			if ($respuesta == "ok") {
+
+					echo '<script>
+
+
+					swal({
+
+						type: "success",
+						title: "¡El usuario ha sido borrado correctamente!",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar",
+						closeOnConfirm: false
+						}).then((result)=>{
+							if(result.value){
+
+								window.location = "usuarios";
+
+
+							}
+
+
+							});
+
+
+
+				</script>';
+
+			}	
+
+
+		}
+
+	} 
+
+
+	
 
 }
+
+
+

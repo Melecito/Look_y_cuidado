@@ -181,5 +181,37 @@ $(".btnEditarUsuario").click(function(){
     })
 
  })
+
+
+ /************************
+ * Eliminar usuario      *
+ * **********************/
+
+ $(".btnEliminarUsuario").click(function(){
+
+    var idUsuario = $(this).attr("idUsuario");
+    var fotoUsuario = $(this).attr("fotoUsuario");
+    var usuario = $(this).attr("usuario");
+
+
+   swal({
+        title: '¿Estás seguro de borrar el usuario?',
+        text: "¡Si no lo está cancelar la accion!",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: '¡Si, borrar usuario!'
+    }).then((result)=>{
+
+        if (result.value) {
+
+            window.location = "index.php?ruta=usuarios&idUsuario="+idUsuario+"&usuario="+usuario+"&fotoUsuario="+fotoUsuario;
+
+        }
+    })
+})
+ 
  
  
