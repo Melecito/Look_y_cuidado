@@ -207,7 +207,7 @@ $(".btnEditarUsuario").click(function(){
 
         if (result.value) {
 
-            window.location = "index.php?ruta=usuarios&idUsuario="+idUsuario+"&usuario="+usuario+"&fotoUsuario="+fotoUsuario;
+            window.location = "index.php?ruta=usuario&idUsuario="+idUsuario+"&usuario="+usuario+"&fotoUsuario="+fotoUsuario;
 
         }
     })

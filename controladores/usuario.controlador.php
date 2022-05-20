@@ -570,7 +570,7 @@ class ControladorUsuarios{
 						}).then((result)=>{
 							if(result.value){
 
-								window.location = "usuarios";
+								window.location = "usuario";
 
 
 							}
