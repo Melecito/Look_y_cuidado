@@ -8,7 +8,7 @@ class ModeloUsuarios{
 
 
 
-	public function mdlMostrarUsuarios($tabla, $item, $valor){
+	static public function mdlMostrarUsuarios($tabla, $item, $valor){
 
 		if ($item != null) {
 
@@ -40,7 +40,7 @@ class ModeloUsuarios{
 	/***********************
 	 * registro de usuario *
 	 * *********************/
-	public function mdlIngresarUsuario($tabla, $datos){
+	static public function mdlIngresarUsuario($tabla, $datos){
 
 		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, usuario, password, perfil, foto) VALUES (:nombre, :usuario, :password, :perfil, :foto)");
 
@@ -73,7 +73,7 @@ class ModeloUsuarios{
 	 * Editar de usuario *
 	 * *********************/
 
-	public function mdlEditarUsuario($tabla, $datos){
+	static public function mdlEditarUsuario($tabla, $datos){
 
 		$stmt = Conexion::conectar()->prepare("UPDATE  $tabla SET nombre = :nombre, password = :password, perfil = :perfil, foto = :foto WHERE usuario = :usuario");
 
@@ -105,7 +105,7 @@ class ModeloUsuarios{
 	 * Actualizar usuario *
 	 * *********************/
 
-	public function mdlActualizarUsuario($tabla, $item1, $valor1, $item2, $valor2){
+	static public function mdlActualizarUsuario($tabla, $item1, $valor1, $item2, $valor2){
 
 
 		$stmt = Conexion::conectar()->prepare("UPDATE  $tabla SET $item1 = :$item1 WHERE $item2 = :$item2");
@@ -140,12 +140,12 @@ class ModeloUsuarios{
 	 * Borrar usuario *
 	 * *********************/
 
-	public function mdlBorrarUsuario($tabla, $datos){
+	static public function mdlBorrarUsuario($tabla, $datos){
 
 		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
 
 
-		$stmt -> bindParam(":id", $datos, PDO::PARAM_INT);
+		$stmt -> bindParam(":id", $datos, PDO::PARAM_STR);
 
 
 		if ($stmt -> execute()) {
