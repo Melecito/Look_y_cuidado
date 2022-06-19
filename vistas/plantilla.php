@@ -126,12 +126,8 @@ session_start();
             $_GET['ruta']=="productos"||
             $_GET['ruta']=="categorias"||
             $_GET['ruta']=="clientes"||
+            $_GET['ruta']=="citas"||
             $_GET['ruta']=="ventas"||
-            $_GET['ruta']=="reportes"||
-            $_GET['ruta']=="crear-venta"||
-            $_GET['ruta']=="pedidos"||
-            $_GET['ruta']=="reportePedidos"||
-            $_GET['ruta']=="crear-pedidos"||
             $_GET['ruta']=="salir") {
 
             include "modulos/".$_GET['ruta'].".php";

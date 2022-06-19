@@ -1,315 +1,118 @@
 <aside class="main-sidebar">
 
 
-	<section class="sidebar">
+  <section class="sidebar">
 
-		<ul class="sidebar-menu">
+    <ul class="sidebar-menu">
 
 
-			<li class="active">
+      <li class="active">
 
-				<a href="inicio">
+        <a href="inicio">
 
-					<i class="fa fa-home"></i>
-					<span>Inicio</span>
+          <i class="fa fa-home"></i>
+          <span>Inicio</span>
 
 
-				</a>
+        </a>
 
 
-			</li>
-			<li>
+      </li>
+      <li>
 
-				<a href="usuario">
+        <a href="usuario">
 
-					<i class="fa fa-user"></i>
-					<span>Administrador</span>
+          <i class="fa fa-user"></i>
+          <span>Administrador</span>
 
 
-				</a>
+        </a>
 
 
-			</li>
+      </li>
 
-			<li>
+      <li>
 
-				<a href="usuario">
+        <a href="productos">
 
-					<i class="fa fa-user"></i>
-					<span>Usuario</span>
+          <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+          <span>Productos</span>
 
 
-				</a>
+        </a>
 
 
-			</li>
-			
-			<li class="treeview">
+      </li>
 
-				<a href="#">
 
-					<i class="fa fa-list-ul"></i>
+      <li>
 
-					<span>Productos</span>
+        <a href="categorias">
 
-					<span class="pull-right-container">
-						
-						<i class="fa fa-angle-left pull-right"></i>
+          <i class="fa fa-th" aria-hidden="true"></i>
+          <span>Categorias</span>
 
-					</span>
 
+        </a>
 
-				</a>
 
-				<ul class="treeview-menu">
-					
-					<li>
-						
-						<a href="medicinas">
+      </li>
 
-							<i class="fa fa-circle-o"></i>
-							<span>Medicinas</span>
+      
+      
 
-						</a>
+      <li class="">
 
-					</li>
+        <a href="clientes">
 
-					<li>
-						
-						<a href="belleza">
+          <i class="fa fa-users" aria-hidden="true"></i>
 
-							<i class="fa fa-circle-o"></i>
-							<span>Belleza</span>
+          <span>Clientes</span>
 
 
-						</a>
+        </a>
 
-					</li>
 
-					<li>
-						
-						<a href="varios">
+      </li>
 
 
-							<i class="fa fa-circle-o"></i>
-							<span>Varios</span>
 
-						</a>
+      <li class="">
 
-					</li>
+        <a href="citas">
 
-				</ul>
+          <i class="fa fa-stethoscope" aria-hidden="true"></i>
+          <span>Citas</span>
 
 
-			</li>
+        </a>
 
-			<li class="">
 
-				<a href="clientes">
+      </li>
 
-					<i class="fa fa-user"></i>
-					<span>Clientes</span>
 
 
-				</a>
 
+      <li class="">
 
-			</li>
+        <a href="ventas">
 
+          <i class="fa fa-handshake-o" aria-hidden="true"></i>
 
-			<li class="treeview">
 
-				<a href="#">
+          <span>Ventas</span>
 
-					 <i class="fa fa-book-medical"></i>
 
-					<span>Citas</span>
+        </a>
 
-					<span class="pull-right-container">
-						
-						<i class="fa fa-angle-left pull-right"></i>
 
-					</span>
+      </li>
 
+      
 
-				</a>
-
-				<ul class="treeview-menu">
-					
-					<li>
-						
-						<a href="ventas">
-
-							<i class="fa fa-circle-o"></i>
-							<span>Administrar cita</span>
-
-						</a>
-
-					</li>
-
-					<li>
-						
-						<a href="crear-venta">
-
-							<i class="fa fa-circle-o"></i>
-							<span>Reprogramar cita</span>
-
-
-						</a>
-
-					</li>
-
-					<li>
-						
-						<a href="reportes">
-
-
-							<i class="fa fa-circle-o"></i>
-							<span>Cancelar cita</span>
-
-						</a>
-
-					</li>
-
-					<li>
-						
-						<a href="reportes">
-
-
-							<i class="fa fa-circle-o"></i>
-							<span>Reporte de cita</span>
-
-						</a>
-
-					</li>
-
-				</ul>
-
-
-			</li>
-
-			<li class="treeview">
-
-				<a href="#">
-
-					<i class="fa fa-list-ul"></i>
-
-					<span>Ventas</span>
-
-					<span class="pull-right-container">
-						
-						<i class="fa fa-angle-left pull-right"></i>
-
-					</span>
-
-
-				</a>
-
-				<ul class="treeview-menu">
-					
-					<li>
-						
-						<a href="ventas">
-
-							<i class="fa fa-circle-o"></i>
-							<span>Administrar ventas</span>
-
-						</a>
-
-					</li>
-
-					<li>
-						
-						<a href="crear-venta">
-
-							<i class="fa fa-circle-o"></i>
-							<span>Crear venta</span>
-
-
-						</a>
-
-					</li>
-
-					<li>
-						
-						<a href="reportes">
-
-
-							<i class="fa fa-circle-o"></i>
-							<span>Reporte de ventas</span>
-
-						</a>
-
-					</li>
-
-				</ul>
-
-
-			</li>
-
-			<li class="treeview">
-
-				<a href="pedidos">
-
-					<i class="fa fa-list-ul"></i>
-
-					<span>Pedidos</span>
-
-					<span class="pull-right-container">
-						
-						<i class="fa fa-angle-left pull-right"></i>
-
-					</span>
-
-
-				</a>
-
-				<ul class="treeview-menu">
-					
-					<li>
-						
-						<a href="pedidos">
-
-							<i class="fa fa-circle-o"></i>
-							<span>Administrar Pedidos</span>
-
-						</a>
-
-					</li>
-
-					<li>
-						
-						<a href="crear-pedidos">
-
-							<i class="fa fa-circle-o"></i>
-							<span>Crear crear pedidos</span>
-
-
-						</a>
-
-					</li>
-
-					<li>
-						
-						<a href="reportePedidos">
-
-
-							<i class="fa fa-circle-o"></i>
-							<span>Reporte de pedidos</span>
-
-						</a>
-
-					</li>
-
-				</ul>
-
-
-			</li>
-
-
-		</ul>
-		
-	</section>
+    </ul>
+    
+  </section>
 
 
 </aside>

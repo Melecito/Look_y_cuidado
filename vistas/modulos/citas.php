@@ -5,14 +5,14 @@
 
 
       <h1>
-        Administrar pedidos
+        Administrar citas
 
 
       </h1>
 
       <ol class="breadcrumb">
         <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li class="active">Administrar pedidos</li>
+        <li class="active">Administrar cita</li>
       </ol>
 
     </section>
