@@ -80,7 +80,7 @@
 
 							<ul class="dropdown-menu">
 								
-								<<li class="user-body">
+								<li class="user-body">
 
 
 									<div class="pull-right">

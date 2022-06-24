@@ -113,17 +113,21 @@
 
         <form role="form" method="post" enctype="multipart/form-data">
 
-          <div class="modal-header" style="background: #3c8dbc; color: white;">
+          <!--   CABEZA MODAL  -->
 
+          <div class="modal-header" style="background: #3c8dbc; color: white;">
 
             <h4 class="modal-title">Agregar usuario</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
 
+           <!-- CUERPO MODAL -->
           
           <div class="modal-body">
 
             <div class="box-body">
+
+               <!-- AGREGAR NOMBRE-->
               
               <div class="form-group">
                    <div class="input-group">
@@ -135,7 +139,7 @@
               </div>
 
                 
-                 <!-- AGREGAR NOMBRE-->
+                 <!-- AGREGAR USUARIO-->
                 
 
                
@@ -149,7 +153,7 @@
                   
                  </div>  
                 </div>                
-                  <!--AGREGAR USUARIO-->
+                  <!--AGREGAR CONTRASEÑA-->
                 
 
                 
@@ -163,7 +167,7 @@
                 </div>
               </div>             
                               
-                  <!--AGREGAR CONTRASEÑA-->
+                  <!--AGREGAR PERFIL-->
                 
 
                 
@@ -194,7 +198,7 @@
                  </div>
               </div>
 
-                 <!--AGREGAR PERFIL-->            
+                 <!--AGREGAR FOTO-->            
 
                 
 
@@ -208,7 +212,7 @@
 
                   <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail" width="100px">
               </div>
-                <!--Subir foto-->         
+                       
                 
 
               </div>
@@ -216,7 +220,7 @@
 
             </div>
           
-
+          <!-- PIE MODAL -->
           
           <div class="modal-footer">
 

@@ -167,7 +167,10 @@
 
               <div class="box-body">
 
+                
+
                  <!--  ENTRADA PARA NOMBRE -->
+
                 
                 <div class="form-group">
                   <div class="input-group">
@@ -195,7 +198,7 @@
           </div>
           <?php
 
-            $crearCategoria = new CotroladorCategorias();
+            $crearCategoria = new ControladorCategorias();
             $crearCategoria -> ctrCrearCategoria();
 
           ?>
