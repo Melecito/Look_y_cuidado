@@ -49,6 +49,7 @@
                 <th>Estado</th>
                 <th>Ultimo login</th>
                 <th>Acciones</th>
+               
 
 
               </tr>
@@ -96,7 +97,9 @@
 
                   echo '<td><button class="btn btn-danger btn-xs btnActivar" idUsuario="'.$value["id"].'" estadoUsuario="1">Desactivado</button></td>';
 
-                }     
+                } 
+
+
 
                 /************************
                  * Boton lapiz y borrar 
@@ -213,7 +216,17 @@
                   <input type="password" class="form-control input-lg" name="nuevopassword" placeholder="Ingresar contraseña" required>
                   
                 </div>
-              </div>        
+              </div> 
+
+
+              <div class="form-group">
+                  <div class="input-group">
+
+                  <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                  <input type="text" class="form-control input-lg" name="nuevaCedula" placeholder="Ingresar cedula" required>
+                  
+                </div>
+              </div>         
 
                               
                   <!--AGREGAR perfil-->              

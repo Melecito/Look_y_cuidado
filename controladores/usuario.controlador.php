@@ -86,7 +86,7 @@ class ControladorUsuarios{
 	}
 
 
-	static public function ctrCrearUsuario(){
+	public function ctrCrearUsuario(){
 
 		if(isset($_POST["nuevousuario"])){
 
@@ -114,7 +114,7 @@ class ControladorUsuarios{
 
 					$directorio = "vistas/img/usuarios/".$_POST["nuevousuario"];
 
-					mkdir($directorio, 0755);
+					mkdir($directorio, 0777);
 
 					/********************************
 					 * de acuerdo a tipo de formato *
@@ -130,7 +130,7 @@ class ControladorUsuarios{
 
 						$aleatorio = mt_rand(100,999);
 
-						$ruta = $directorio."/".$aleatorio.".jpeg";
+						$ruta = $directorio."/".$aleatorio.".jpg";
 
 						$origen = imagecreatefromjpeg($_FILES["nuevaFoto"]["tmp_name"]);
 
@@ -295,7 +295,7 @@ class ControladorUsuarios{
 	 * metodo editar usuario *
 	 * ************************/
 
-	static public function ctrEditarUsuario(){
+	public function ctrEditarUsuario(){
 
 		if (isset($_POST["editarUsuario"])) {
 
@@ -333,7 +333,7 @@ class ControladorUsuarios{
 					}else{
 
 
-						mkdir($directorio, 0755);
+						mkdir($directorio, 0777);
 
 					}
 
@@ -355,7 +355,7 @@ class ControladorUsuarios{
 
 						$ruta = "vistas/img/usuarios/".$_POST["editarUsuario"]."/".$aleatorio.".jpeg";
 
-						$origen = imagecreatefromjpeg($_FILES["editarFoto"]["tmp_name"]);
+						$origen = imagecreatefromjpg($_FILES["editarFoto"]["tmp_name"]);
 
 
 						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
@@ -537,7 +537,7 @@ class ControladorUsuarios{
 	* Borrar usuario *
 	* *****************************/
 
-	static public function ctrBorrarUsuario(){
+	public function ctrBorrarUsuario(){
 
 
 		if (isset($_GET['idUsuario'])) {

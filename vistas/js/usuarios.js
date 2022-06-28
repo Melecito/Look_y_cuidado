@@ -10,6 +10,7 @@
  	if (imagen["type"] != "image/jpeg" && imagen["type"] != "image/png") {
 
  		$(".nuevaFoto").val("");
+        
 
  		swal({
 
