@@ -70,6 +70,8 @@ $(".btnEditarUsuario").click(function(){
         dataType: "json",
         success: function(respuesta){
 
+           //console.log("respuesta", respuesta);
+           
             $("#editarNombre").val(respuesta["nombre"]);
             $("#editarUsuario").val(respuesta["usuario"]);
             $("#editarPerfil").html(respuesta["perfil"]);

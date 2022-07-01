@@ -49,6 +49,7 @@
                 <th>Estado</th>
                 <th>Ultimo login</th>
                 <th>Acciones</th>
+                
                
 
 
@@ -71,7 +72,7 @@
 
                   echo '<tr>
 
-                <td>1</td>
+                <td>'.($key+1).'</td>
                 <td>'.$value["nombre"].'</td>
                 <td>'.$value["usuario"].'</td>';
 
@@ -100,35 +101,28 @@
                 } 
 
 
-
                 /************************
                  * Boton lapiz y borrar 
                  * *********************/         
 
 
                 echo '<td>'.$value["ultimo_login"].'</td>
-                <td>
-                  
+
+                <td>                  
                   <div class="btn-group">
-
+                  
                     <button class="btn btn-warning btnEditarUsuario" idUsuario="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-pencil"></i></button>
-
 
 
                     <button class="btn btn-danger btnEliminarUsuario" idUsuario="'.$value["id"].'" fotoUsuario="'.$value["foto"].'" usuario="'.$value["usuario"].'"><i class="fa fa-times"></i></button>
                     
                   </div>
 
-
                 </td>
                 
               </tr>';
 
-                }
-
-                // var_dump($usuarios);
-
-               
+                }                          
 
 
                ?>              
@@ -219,14 +213,7 @@
               </div> 
 
 
-              <div class="form-group">
-                  <div class="input-group">
-
-                  <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                  <input type="text" class="form-control input-lg" name="nuevaCedula" placeholder="Ingresar cedula" required>
-                  
-                </div>
-              </div>         
+              
 
                               
                   <!--AGREGAR perfil-->              
@@ -251,7 +238,8 @@
 
                     <option value="Cajero">Cajero</option>
 
-                    <option value="MedicoVet">Medico</option>                
+                    <option value="MedicoVet">Medico</option>
+                                  
 
 
                   </select>
