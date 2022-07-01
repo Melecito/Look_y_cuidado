@@ -86,7 +86,7 @@ class ControladorUsuarios{
 	}
 
 
-	public function ctrCrearUsuario(){
+	static public function ctrCrearUsuario(){
 
 		if(isset($_POST["nuevousuario"])){
 
@@ -295,7 +295,7 @@ class ControladorUsuarios{
 	 * metodo editar usuario *
 	 * ************************/
 
-	public function ctrEditarUsuario(){
+	static public function ctrEditarUsuario(){
 
 		if (isset($_POST["editarUsuario"])) {
 
@@ -537,7 +537,7 @@ class ControladorUsuarios{
 	* Borrar usuario *
 	* *****************************/
 
-	public function ctrBorrarUsuario(){
+	static public function ctrBorrarUsuario(){
 
 
 		if (isset($_GET['idUsuario'])) {

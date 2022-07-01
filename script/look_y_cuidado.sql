@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-06-2022 a las 20:38:07
--- Versión del servidor: 10.1.21-MariaDB
--- Versión de PHP: 7.1.2
+-- Tiempo de generación: 01-07-2022 a las 18:46:31
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -29,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `categorias` (
   `id` int(11) NOT NULL,
   `categoria` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -37,7 +38,12 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`id`, `categoria`, `fecha`) VALUES
-(0, 'Juguetería', '2022-06-21 21:46:48');
+(1, 'Juguetería', '2022-06-27 20:31:05'),
+(2, 'Hogar', '2022-06-27 20:32:43'),
+(3, 'Salud', '2022-06-27 20:32:50'),
+(4, 'Arenas', '2022-06-28 17:17:21'),
+(5, 'Viajes', '2022-06-28 23:30:36'),
+(6, 'Comida', '2022-06-30 15:58:28');
 
 -- --------------------------------------------------------
 
@@ -148,7 +154,7 @@ CREATE TABLE `usuarios` (
   `foto` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `estado` int(11) NOT NULL,
   `ultimo_login` datetime NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -156,9 +162,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `perfil`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
-(11, 'Liliana M Diaz', 'liliD', '$2a$07$usesomesillystringforemVnaGTCxgHkYewdsGlWFgUGKQ9SlWNO', 'Administrador', 'vistas/img/usuarios/liliD/221.jpeg', 1, '2022-06-23 12:15:26', '2022-06-23 17:15:26'),
+(11, 'Liliana Diaz', 'liliD', '$2a$07$usesomesillystringforemVnaGTCxgHkYewdsGlWFgUGKQ9SlWNO', 'Administrador', 'vistas/img/usuarios/liliD/221.jpeg', 1, '2022-07-01 08:07:47', '2022-07-01 13:07:47'),
 (12, 'Jorge Miranda', 'JorgeO', '$2a$07$usesomesillystringforeBrAObg1v2Mrkbobvqx763.gj3Kdetda', 'Almacenista', 'vistas/img/usuarios/JorgeO/833.png', 1, '2022-05-17 20:21:04', '2022-06-20 16:02:23'),
-(15, 'Milena Cuevas Rojas', 'Milena', '$2a$07$usesomesillystringfore0dGYTL8I5/vZY9H5lnOy9MXcuvdrsXi', 'Vendedor', 'vistas/img/usuarios/Milena/276.png', 1, '2022-06-20 11:02:47', '2022-06-21 23:09:45');
+(15, 'Milena Cuevas Rojas', 'Milena', '$2a$07$usesomesillystringfore0dGYTL8I5/vZY9H5lnOy9MXcuvdrsXi', 'Vendedor', 'vistas/img/usuarios/Milena/276.png', 1, '2022-06-20 11:02:47', '2022-06-26 20:56:20');
 
 --
 -- Índices para tablas volcadas
@@ -181,10 +187,18 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
