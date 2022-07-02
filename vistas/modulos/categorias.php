@@ -225,6 +225,8 @@
                     <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
                    <input type="text" class="form-control input-lg" name="editarCategoria" id="editarCategoria" required>
+
+                    <input type="hidden" name="idCategoria" id="idCategoria" required>
                     
                   </div>
 
@@ -243,15 +245,21 @@
             <button type="submit" class="btn btn-primary">Guardar cambios</button>
 
           </div>
-         <!--<?php
+          <?php
 
             $editarCategoria = new ControladorCategorias();
             $editarCategoria -> ctrEditarCategoria();
 
-          ?>-->
-
+          ?> 
+ 
       </form>
 
       </div>
     </div>
   </div>
+   <?php
+
+    $borrarCategoria = new ControladorCategorias();
+    $borrarCategoria -> ctrBorrarCategotia();
+
+  ?>
