@@ -1,9 +1,26 @@
-  $('.sidebar-menu').tree()
+/*===================================
+CARGAR LA TABLA DINAMICA DE PRODUCTOS
+====================================*/
+
+// $.ajax({
+
+// 	url: "ajax/datatable-productos.ajax.php",
+// 	success:function(respuesta){
+
+// 		console.log("respuesta", respuesta);
+
+// 	}
 
 
-/*Data Table*/
+// })
 
-$(".tablas").DataTable({
+
+
+ $('.tablaProductos').DataTable({
+    "ajax": 'ajax/datatable-productos.ajax.php',
+    "bDeferRender": true,
+    "retrieve": true,
+    "progressing": true,
     "language":{
         "sProcessing":     "Procesando...",
         "sLengthMenu":     "Mostrar _MENU_ registros",
@@ -28,12 +45,36 @@ $(".tablas").DataTable({
             "sSortDescending":  ": Activar para ordenar la columna de manera descendente",
         }
     }
-} );
+})
 
-//iCheck for checkbox and radio inputs
+ $("#nuevaCategoria").change(function(){
 
-    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-      checkboxClass: 'icheckbox_minimal-blue',
-      radioClass   : 'iradio_minimal-blue'
-    })
-  
+ 	var idCategoria = $(this).val();
+
+ 	var datos = new FormData();
+ 	datos.append("idCategoria", idCategoria);
+
+ 	$.ajax({
+
+        url:"ajax/productos.ajax.php",
+        method: "POST",
+        data: datos,
+        cache: false,
+        contentType: false,
+        processData: false,
+        dataType:"json",
+        success:function(respuesta){
+
+
+            
+           // var nuevoCodigo = respuesta["Codigo"];
+        	console.log("respuesta");
+
+        }
+
+
+    });
+
+
+
+ })

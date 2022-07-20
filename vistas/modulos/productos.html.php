@@ -35,11 +35,11 @@
 
         <div class="box-body">
           
-          <table class="table table-bordered table-striped dt-responsive-responsive tablaProductos">
+          <table class="table table-bordered table-striped dt-responsive-responsive tablas">
             
-            <thead>              
+            <thead>
               
-               <tr>
+              <tr>
                 
                 <th style="width: 10px;">#</th>
                 <th>Imagen</th>
@@ -58,6 +58,93 @@
 
             </thead>
 
+            <tbody>
+
+              
+
+
+              
+
+
+              <tr>
+
+                <td>1</td>
+                <td><img src="vistas/img/productos/monello.jpeg" class="img-thumbnail" width="40px"></td>
+                <td>0001</td>
+                <td>Monello 1 kilo</td>
+                <td>Comida</td>
+                <td>20</td>
+                <td>$ 10.000</td>
+                <td>$ 21.000</td>
+                <td>2022-05-05 22:20:45</td>
+                <td>
+                  
+                  <div class="btn-group">
+
+                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+
+                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                    
+                  </div>
+
+
+                </td>
+                
+              </tr>
+
+              <tr>
+
+                <td>1</td>
+                 <td><img src="vistas/img/productos/monello.jpeg" class="img-thumbnail" width="40px"></td>
+                <td>0001</td>
+                <td>Monello 1 kilo</td>
+                <td>Comida</td>
+                <td>20</td>
+                <td>$ 10.000</td>
+                <td>$ 21.000</td>
+                <td>2022-05-05 22:20:45</td>
+                <td>
+                  
+                  <div class="btn-group">
+
+                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+
+                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                    
+                  </div>
+
+
+                </td>
+                
+              </tr>
+
+              <tr>
+
+                <td>1</td>
+                 <td><img src="vistas/img/productos/monello.jpeg" class="img-thumbnail" width="40px"></td>
+                <td>0001</td>
+                <td>Monello 1 kilo</td>
+                <td>Comida</td>
+                <td>20</td>
+                <td>$ 10.000</td>
+                <td>$ 21.000</td>
+                <td>2022-05-05 22:20:45</td>
+                <td>
+                  
+                  <div class="btn-group">
+
+                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+
+                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                    
+                  </div>
+
+
+                </td>
+                
+              </tr>
+
+            </tbody>
             
           </table>
 
@@ -95,44 +182,10 @@
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
 
-          <!-- Cuerpo del modal -->
+          
           <div class="modal-body">
 
             <div class="box-body">
-
-              <!--ENTRADA PARA SELECCIONAR CATEGORÍA-->
-
-                <div class="form-group">
-
-                  <div class="input-group">
-
-                  <span class="input-group-addon"><i class="fa fa-cart-arrow-down"></i></span>
-
-                  <select class="form-control input-lg" id="nuevaCategoria" name="nuevaCategoria" required>
-                     <option value="">Seleccione una categoria</option>
-
-                     <?php 
-
-                     $item = null;
-                     $valor = null;
-
-                     $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
-
-                     foreach ($categorias as $key => $value) {
-                       
-                       echo '<option value="'.$value["IdCat"].'" >'.$value["categoria"].'</option>';
-                       }
-                     
-
-                     ?>
-                   
-
-                  </select>
-
-
-                  
-                 </div>
-              </div> 
 
               <!-- ENTRADA PARA EL CODIGO-->
               
@@ -157,7 +210,41 @@
                   
                  </div>  
                 </div>                
-                   
+                   <!--ENTRADA PARA SELECCIONAR CATEGORÍA-->
+                
+
+                
+
+                <div class="form-group">
+
+                  <div class="input-group">
+
+                  <span class="input-group-addon"><i class="fa fa-cart-arrow-down"></i></span>
+
+                  <select class="form-control input-lg" name="nuevoPerfil">
+                     <option value="">Seleccione una categoria</option>
+
+                    <option value="jugetes">Jugetes</option>
+
+                    <option value="salud">Salud</option>
+
+                    <option value="comida">Comida</option>
+
+                    <option value="arenas">Arenas</option>
+
+                    <option value="belleza">Belleza</option>
+
+                    <option value="hogar">Hogar</option>
+
+                    <option value="viajes">Viajes</option>                
+
+
+                  </select>
+
+
+                  
+                 </div>
+              </div> 
 
               <!-- ENTRADA PARA SCTOK-->        
 

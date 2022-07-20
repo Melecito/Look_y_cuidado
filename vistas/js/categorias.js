@@ -22,7 +22,7 @@
         success: function(respuesta){
 
             $("#editarCategoria").val(respuesta["categoria"]);
-            $("#idCategoria").val(respuesta["id"]);
+            $("#idCategoria").val(respuesta["IdCat"]);
 
            //console.log("respuesta", respuesta);
 
