@@ -28,8 +28,8 @@ class AjaxCategorias{
 	 * * ********************/
 if (isset($_POST["idCategoria"])) {
 
-	$categoria = new AjaxCategorias();
-	$categoria -> idCategoria = $_POST["idCategoria"];
-	$categoria -> ajaxEditarCategoria();
+	$categorias = new AjaxCategorias();
+	$categorias -> idCategoria = $_POST["idCategoria"];
+	$categorias -> ajaxEditarCategoria();
 
 }

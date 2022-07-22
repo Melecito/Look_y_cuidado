@@ -109,6 +109,7 @@
                   <span class="input-group-addon"><i class="fa fa-cart-arrow-down"></i></span>
 
                   <select class="form-control input-lg" id="nuevaCategoria" name="nuevaCategoria" required>
+
                      <option value="">Seleccione una categoria</option>
 
                      <?php 
@@ -118,10 +119,15 @@
 
                      $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
 
+
+
                      foreach ($categorias as $key => $value) {
                        
+
                        echo '<option value="'.$value["IdCat"].'" >'.$value["categoria"].'</option>';
                        }
+
+
                      
 
                      ?>
@@ -140,7 +146,7 @@
                    <div class="input-group">
 
                   <span class="input-group-addon"><i class="fa fa-code"></i></span>
-                  <input type="text" class="form-control input-lg" name="nuevoCodigo" placeholder="Ingresar codigo" required>
+                  <input type="text" class="form-control input-lg" name="nuevoCodigo" id="nuevoCodigo" placeholder="Ingresar codigo" readonly required>
                   
                 </div>
               </div>
@@ -177,12 +183,13 @@
 
                 <div class="form-group row">
 
-                  <div class="col-xs-6">                    
+                  <div class="col-xs-12 col-sm-6">                    
                   
                      <div class="input-group">
 
                     <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span>
-                    <input type="number" class="form-control input-lg" name="nuevoPrecioCompra" placeholder="precio de compra" min="0" required>
+
+                    <input type="number" class="form-control input-lg" name="nuevoPrecioCompra" id="nuevoPrecioCompra" placeholder="precio de compra" min="0" step="any" required>
                     
                    </div>
 
@@ -191,11 +198,12 @@
 
                  <!--AGREGAR PRECIO DE VENTA--> 
 
-                   <div class="col-xs-6">
+                   <div class="col-xs-12 col-sm-6">
                      <div class="input-group">
 
                     <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span>
-                    <input type="number" class="form-control input-lg" name="nuevoPrecioVenta" placeholder="precio de venta" min="0" required>
+
+                    <input type="number" class="form-control input-lg" name="nuevoPrecioVenta" id="nuevoPrecioVenta" placeholder="precio de venta" min="0" step="any" required>
                     
                    </div>
                    <br>
@@ -203,7 +211,7 @@
 
                    <!--Checkbox para porcentaje-->
 
-                   <div class="col-xs-6">
+                   <div class="col-xs-12 col-sm-8">
 
                      <div class="form-group">
 
@@ -219,7 +227,7 @@
 
                     <!--entrada para porcentaje-->
 
-                    <div class="col-xs-6" style="padding: 0;">
+                    <div class="col-xs-12 col-sm-6" style="padding: 0;">
                       
                       <div class="input-group">
                         
@@ -269,6 +277,14 @@
 
           </div>
       </form>
+
+      <?php
+
+      $crearProducto = new ControladorProductos();
+      $crearProducto->ctrCrearProducto();
+
+      ?>
+
 
       </div>
     </div>

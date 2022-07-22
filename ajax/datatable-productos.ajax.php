@@ -37,7 +37,7 @@ class TablaProductos{
 		  	$item = "IdCat";
             $valor = $productos[$i]["IdCat"];
 
-            $categoria = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+            $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
 
             /*===================================
 			STOCK DE PRODUCTOS
@@ -66,7 +66,7 @@ class TablaProductos{
 			====================================*/
 
 
-            $botones = "<div class='btn-group'><button class='btn btn-warning btnEditarProducto' idProducto'".$productos[$i]["id"]."' data-toggle='modal' data-target='#modalEditarProducto'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnBorrarProducto' idProducto'".$productos[$i]["id"]."' codigo'".$productos[$i]["Codigo"]."' imagen'".$productos[$i]["Imagen"]."'><i class='fa fa-times'></i></button></div>";
+            $botones = "<div class='btn-group'><button class='btn btn-warning btnEditarProducto' idProducto='".$productos[$i]["id"]."' data-toggle='modal' data-target='#modalEditarProducto'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnBorrarProducto' idProducto='".$productos[$i]["id"]."' codigo='".$productos[$i]["Codigo"]."' imagen='".$productos[$i]["Imagen"]."'><i class='fa fa-times'></i></button></div>";
 		  	
 
 		  	$datosJson .='[
@@ -74,7 +74,7 @@ class TablaProductos{
 		      "'.$imagen.'",
 		      "'.$productos[$i]["Codigo"].'",
 		      "'.$productos[$i]["Descripcion"].'",
-		      "'.$categoria["categoria"].'",
+		      "'.$categorias["categoria"].'",
 		      "'.$stock.'",
 		      "$ '.$productos[$i]["PrecioCompra"].'",
 		      "$ '.$productos[$i]["PrecioVenta"].'",

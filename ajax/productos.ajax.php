@@ -9,7 +9,7 @@ class AjaxProductos{
 	=========================================*/
 	public $idCategoria;
 
-	static public function ajaxCrearCodigoProducto(){
+	public function ajaxCrearCodigoProducto(){
 
 		$item = "IdCat";
 		$valor = $this->idCategoria;
@@ -32,7 +32,7 @@ class AjaxProductos{
 if (isset($_POST["idCategoria"])) {
 	
 	$codigoProducto = new AjaxProductos();
-	$codigoProducto -> idCategoria = $_POST['idCategoria'];
+	$codigoProducto -> idCategoria = $_POST["idCategoria"];
 	$codigoProducto -> ajaxCrearCodigoProducto();
 }
 
