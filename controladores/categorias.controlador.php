@@ -3,6 +3,10 @@
 
 class ControladorCategorias{
 
+	/*=============================================
+	CREAR CATEGORIAS
+	=============================================*/
+
 	static public function ctrCrearCategoria(){
 
 		if (isset($_POST["nuevaCategoria"])) {
@@ -109,7 +113,7 @@ class ControladorCategorias{
 
 				$tabla = "categorias";
 
-				$datos = array("categoria"=>$_POST["editarCategoria"], "IdCat"=>$_POST["idCategoria"]);
+				$datos = array("categoria"=>$_POST["editarCategoria"], "id"=>$_POST["idCategoria"]);
 
 				$respuesta = ModeloCategorias::mdlEditarCategoria($tabla, $datos);
 

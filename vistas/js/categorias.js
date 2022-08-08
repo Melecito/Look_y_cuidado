@@ -1,12 +1,10 @@
 /************************
  * EDITAR CATEGORIA     *
  * **********************/
- 
-
- $(".btnEditarCategoria").click(function(){
+ $(".tablas").on("click", ".btnEditarCategoria", function(){
 
     var idCategoria = $(this).attr("idCategoria");
-    console.log("idCategoria", idCategoria);
+    
 
     var datos = new FormData();
     datos.append("idCategoria", idCategoria);
@@ -22,7 +20,7 @@
         success: function(respuesta){
 
             $("#editarCategoria").val(respuesta["categoria"]);
-            $("#idCategoria").val(respuesta["IdCat"]);
+            $("#idCategoria").val(respuesta["id"]);
 
            //console.log("respuesta", respuesta);
 
@@ -36,8 +34,7 @@
  /************************
  * ELIMINAR CATEGORIA     *
  * **********************/
-
-$(".btnEliminarCategoria").click(function(){
+$(".tablas").on("click", ".btnEliminarCategoria", function(){
 
    var idCategoria = $(this).attr("idCategoria");
 

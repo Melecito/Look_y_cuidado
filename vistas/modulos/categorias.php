@@ -69,19 +69,15 @@
                 echo '<tr>
 
                 <td>'.($key+1).'</td>
-                <td class="text-uppercase">'.$value["categoria"].'</td>';
+                <td class="text-uppercase">'.$value["categoria"].'</td>                  
 
-                /************************
-                 * Boton lapiz y borrar 
-                 * *********************/  
-
-               echo '<td>                
+               <td>                
                   
                   <div class="btn-group">
 
-                    <button class="btn btn-warning btnEditarCategoria" idCategoria="'.$value["IdCat"].'" data-toggle="modal" data-target="#modalEditarCategoria"><i class="fa fa-pencil"></i></button>
+                    <button class="btn btn-warning btnEditarCategoria" idCategoria="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarCategoria"><i class="fa fa-pencil"></i></button>
 
-                    <button class="btn btn-danger btnEliminarCategoria" idCategoria="'.$value["IdCat"].'"><i class="fa fa-times"></i></button>
+                    <button class="btn btn-danger btnEliminarCategoria" idCategoria="'.$value["id"].'"><i class="fa fa-times"></i></button>
                     
                   </div>
 
@@ -103,18 +99,16 @@
         </div>
       
       </div>
-
-
-      <!-- /.box -->
-
+   
     </section>
 
-    <!-- /.content -->
   </div>
 
 
   
-  <!--  MODAL AGREGAR CATEGORIA -->
+  <!--=====================================
+  MODAL AGREGAR CATEGORÍA
+  ======================================-->
   
 
   <!-- The Modal -->
@@ -149,6 +143,7 @@
 
                 
                 <div class="form-group">
+
                   <div class="input-group">
 
                     <span class="input-group-addon"><i class="fa fa-th"></i></span>
@@ -185,7 +180,9 @@
     </div>
   </div>
 
-   <!--  MODAL EDITAR CATEGORIA -->
+   <!--=====================================
+    MODAL EDITAR CATEGORÍA
+    ======================================-->
   
 
   <!-- The Modal -->
