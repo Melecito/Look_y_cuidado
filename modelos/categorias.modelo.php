@@ -75,10 +75,10 @@ class ModeloCategorias{
 	static public function mdlEditarCategoria($tabla, $datos){	
 
 
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET categoria = :categoria WHERE id = :id");
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET categoria = :categoria WHERE IdCat = :IdCat");
 
 		$stmt->bindParam(":categoria", $datos["categoria"], PDO::PARAM_STR);
-		$stmt->bindParam(":id", $datos["id"], PDO::PARAM_STR);
+		$stmt->bindParam(":IdCat", $datos["IdCat"], PDO::PARAM_STR);
 
 
 		if($stmt->execute()){
@@ -105,9 +105,9 @@ class ModeloCategorias{
 
 	static public function mdlBorrarCategoria($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
+		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE IdCat = :IdCat");
 
-		$stmt -> bindParam(":id", $datos, PDO::PARAM_INT);
+		$stmt -> bindParam(":IdCat", $datos, PDO::PARAM_INT);
 
 		if($stmt -> execute()){
 

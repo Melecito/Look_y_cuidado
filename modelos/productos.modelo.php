@@ -8,7 +8,7 @@ class ModeloProductos{
 
 		if ($item != null) {
 			
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item ORDER BY id DESC");
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item ORDER BY IdCat DESC");
 			$stmt ->bindParam(":".$item, $valor, PDO::PARAM_STR);
 			$stmt -> execute();
 
@@ -113,9 +113,9 @@ class ModeloProductos{
 
 	static public function mdlEliminarProducto($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
+		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE IdProduc = :IdProduc");
 
-		$stmt -> bindParam(":id", $datos, PDO::PARAM_INT);
+		$stmt -> bindParam(":IdProduc", $datos, PDO::PARAM_INT);
 
 		if($stmt -> execute()){
 

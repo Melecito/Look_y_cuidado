@@ -221,7 +221,7 @@ EDITAR PRODUCTO
 $(".tablaProductos").on("click", ".btnEditarProducto", function(){
 
 	var idProducto = $(this).attr("idProducto");
-	//console.log("idProducto", idProducto);
+	console.log("idProducto", idProducto);
 
 	
 	var datos = new FormData();
@@ -254,7 +254,7 @@ $(".tablaProductos").on("click", ".btnEditarProducto", function(){
 		          dataType:"json",
 		          success:function(respuesta){
 
-		          	$("#editarCategoria").val(respuesta["id"]);
+		          	$("#editarCategoria").val(respuesta["IdCat"]);
 		          	$("#editarCategoria").html(respuesta["categoria"]);
 
 		          }

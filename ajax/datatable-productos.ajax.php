@@ -29,7 +29,7 @@ class TablaProductos{
 		 	 		TRAEMOS LA CATEGORÍA
 		  			=============================================*/ 
 
-					$item = "id";
+					$item = "IdCat";
 					$valor = $productos[$i]["IdCat"];
 
 					$categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
@@ -62,7 +62,7 @@ class TablaProductos{
 		 	 		TRAEMOS LAS ACCIONES
 		  			=============================================*/ 
 
-					$botones = "<div class='btn-group'><button class='btn btn-warning btnEditarProducto' idProducto='".$productos[$i]["id"]."' data-toggle='modal' data-target='#modalEditarProducto'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnEliminarProducto' idProducto='".$productos[$i]["id"]."' codigo='".$productos[$i]["Codigo"]."' imagen='".$productos[$i]["Imagen"]."'><i class='fa fa-times'></i></button></div>";
+					$botones = "<div class='btn-group'><button class='btn btn-warning btnEditarProducto' idProducto='".$productos[$i]["IdProduc"]."' data-toggle='modal' data-target='#modalEditarProducto'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnEliminarProducto' idProducto='".$productos[$i]["IdProduc"]."' codigo='".$productos[$i]["Codigo"]."' imagen='".$productos[$i]["Imagen"]."'><i class='fa fa-times'></i></button></div>";
 					
 
 					$datosJson.='[

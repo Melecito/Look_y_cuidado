@@ -30,7 +30,7 @@ class AjaxProductos{
 
  	public function ajaxEditarProducto(){
 
-		$item = "id";
+		$item = "IdProduc";
 		$valor = $this->idProducto;
 
 		$respuesta = ControladorProductos::ctrMostrarProductos($item, $valor);
