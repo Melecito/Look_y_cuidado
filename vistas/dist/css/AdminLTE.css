@@ -93,6 +93,8 @@ body {
     transform: translate(230px, 0);
   }
 }
+
+
 .content-wrapper {
   min-height: 100%;
   background-color: #ecf0f5;

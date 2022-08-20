@@ -28,7 +28,8 @@
           data-toggle="modal"
           data-target="#modalAgregarUsuario">
             Agregar usuario
-          </button>    
+          </button>
+                   
 
           
         </div>
@@ -66,6 +67,62 @@
 
                 <td>1</td>
                 <td>Camilo Perez</td>
+                <td>74158962</td>
+                <td>cami@gmail.com</td>
+                <td>3208547595</td>
+                <td>Calle 34 # 23 - 34</td>
+                <td>2001-05-05</td>
+                <td>200000</td>
+                <td>Peine</td>
+                <td>2022-04-05</td>
+                <td>2022-05-05</td>
+                <td>
+                  
+                  <div class="btn-group">
+
+                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+
+                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                    
+                  </div>
+
+
+                </td>
+                
+              </tr>
+
+              <tr>
+
+                <td>2</td>
+                <td>Claudia Melo</td>
+                <td>74158962</td>
+                <td>cami@gmail.com</td>
+                <td>3208547595</td>
+                <td>Calle 34 # 23 - 34</td>
+                <td>2001-05-05</td>
+                <td>200000</td>
+                <td>Peine</td>
+                <td>2022-04-05</td>
+                <td>2022-05-05</td>
+                <td>
+                  
+                  <div class="btn-group">
+
+                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+
+                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                    
+                  </div>
+
+
+                </td>
+                
+              </tr>
+
+              <tr>
+
+                <td>3</td>
+                <td>Liliana Diaz</td>
                 <td>74158962</td>
                 <td>cami@gmail.com</td>
                 <td>3208547595</td>
