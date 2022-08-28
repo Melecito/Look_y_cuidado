@@ -31,21 +31,7 @@
 
       </li>
 
-      <li>
-
-        <a href="productos">
-
-          <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-          <span>Productos</span>
-
-
-        </a>
-
-
-      </li>
-
-
-      <li>
+       <li>
 
         <a href="categorias">
 
@@ -57,6 +43,20 @@
 
 
       </li>
+
+
+      <li>
+
+        <a href="productos">
+
+          <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+          <span>Productos</span>
+
+
+        </a>
+
+
+      </li>    
 
       
       
@@ -75,8 +75,6 @@
 
       </li>
 
-
-
       <li class="">
 
         <a href="citas">
@@ -90,25 +88,56 @@
 
       </li>
 
+      <li class="treeview">
 
+        <a href="#">
 
-
-      <li class="">
-
-        <a href="ventas">
-
-          <i class="fa fa-handshake-o" aria-hidden="true"></i>
-
-
+          <i class="fa fa-list-ul"></i>
+          
           <span>Ventas</span>
+          
+          <span class="pull-right-container">
+          
+            <i class="fa fa-angle-left pull-right"></i>
 
+          </span>
 
         </a>
 
+        <ul class="treeview-menu">
+          
+          <li>
 
-      </li>
+            <a href="ventas">
+              
+              <i class="fa fa-circle-o"></i>
+              <span>Administrar ventas</span>
 
-      
+            </a>
+
+          </li>
+
+          <li>
+
+            <a href="crearVenta">
+              
+              <i class="fa fa-circle-o"></i>
+              <span>Crear venta</span>
+
+            </a>
+
+          </li>
+
+          <li>
+
+            <a href="reporteVenta">
+              
+              <i class="fa fa-circle-o"></i>
+              <span>Reporte de ventas</span>
+
+            </a>
+
+          </li>      
 
     </ul>
     

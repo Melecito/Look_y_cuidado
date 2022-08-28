@@ -8,7 +8,7 @@ class ModeloProductos{
 
 		if ($item != null) {
 			
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item ORDER BY IdCat DESC");
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item ORDER BY IdProduc DESC");
 			$stmt ->bindParam(":".$item, $valor, PDO::PARAM_STR);
 			$stmt -> execute();
 

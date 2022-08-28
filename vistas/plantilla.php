@@ -77,6 +77,10 @@ session_start();
       <script src="vistas/plugins/sweetalert2/sweetalert2.all.js"></script>
       <!-- iCheck 1.0.1 -->
       <script src="vistas/plugins/iCheck/icheck.min.js"></script>
+      <!-- InputMask -->
+      <script src="vistas/plugins/input-mask/jquery.inputmask.js"></script>
+      <script src="vistas/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+      <script src="vistas/plugins/input-mask/jquery.inputmask.extensions.js"></script>
       
       
     </head>
@@ -130,6 +134,8 @@ session_start();
             $_GET['ruta']=="clientes"||
             $_GET['ruta']=="citas"||
             $_GET['ruta']=="ventas"||
+            $_GET['ruta']=="crearVenta"||
+            $_GET['ruta']=="reporteVenta"||
             $_GET['ruta']=="salir") {
 
             include "modulos/".$_GET['ruta'].".php";
@@ -165,7 +171,9 @@ session_start();
     <script src="vistas/js/usuarios.js"></script>
     <script src="vistas/js/categorias.js"></script>
     <script src="vistas/js/productos.js"></script>
+    <script src="vistas/js/clientes.js"></script>
     <script src="vistas/js/citas.js"></script>
+    <script src="vistas/js/ventas.js"></script>
     
     </body>
 
