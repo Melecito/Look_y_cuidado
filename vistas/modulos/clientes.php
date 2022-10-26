@@ -29,10 +29,23 @@
           data-target="#modalAgregarCliente">
             Agregar cliente
           </button>
-                   
+
+          <div class="box-tools pull-right">
+
+           <?php echo '<a href="vistas/modulos/generarExcel.php?reporte=reporte">';?>
+
+            <button class="btn-success" style="margin-top: 5px;">generar excel</button>     
+
+            </a>   
+
+
+
+        </div>
 
           
         </div>
+
+        
 
         <div class="box-body">
           
@@ -42,7 +55,7 @@
               
               <tr>
                 
-               <th style="width:10px">#</th>
+               <th style="width:10px">#</th>               
                <th>Nombre</th>
                <th>Documento ID</th>
                <th>Email</th>

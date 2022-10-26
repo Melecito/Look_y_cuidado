@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Aug 18, 2022 at 05:44 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 26-10-2022 a las 02:04:40
+-- Versión del servidor: 10.4.25-MariaDB
+-- Versión de PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `look_y_cuidado`
+-- Base de datos: `look_y_cuidado`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorias`
+-- Estructura de tabla para la tabla `categorias`
 --
 
 CREATE TABLE `categorias` (
@@ -34,7 +34,7 @@ CREATE TABLE `categorias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `categorias`
+-- Volcado de datos para la tabla `categorias`
 --
 
 INSERT INTO `categorias` (`IdCat`, `categoria`, `fecha`) VALUES
@@ -49,41 +49,32 @@ INSERT INTO `categorias` (`IdCat`, `categoria`, `fecha`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `citas`
---
-
-CREATE TABLE `citas` (
-  `IdCitas` int(11) NOT NULL,
-  `CitaFecha` date DEFAULT NULL,
-  `CitHora` time DEFAULT NULL,
-  `IdMedicoV` int(11) NOT NULL,
-  `IdCliente` int(11) NOT NULL,
-  `IdMascota` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `clientes`
+-- Estructura de tabla para la tabla `clientes`
 --
 
 CREATE TABLE `clientes` (
-  `idCliente` int(11) NOT NULL,
-  `nombre` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `documento` int(11) NOT NULL,
+  `IdCliente` int(11) NOT NULL,
+  `Nombre` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `Documento` int(11) NOT NULL,
   `email` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `telefono` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `direccion` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `fecha_nacimiento` date NOT NULL,
-  `compras` int(11) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `IdMascolta` int(11) NOT NULL
+  `Telefono` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `Direccion` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `Fecha_nacimiento` date NOT NULL,
+  `Compras` int(11) NOT NULL,
+  `Fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`IdCliente`, `Nombre`, `Documento`, `email`, `Telefono`, `Direccion`, `Fecha_nacimiento`, `Compras`, `Fecha`) VALUES
+(0, 'Juan peralta', 75879456, 'juan@gmail.com', '(350) 147-8156', 'cra 23 # 45-45', '1978-04-18', 0, '2022-10-26 00:01:18');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `compra`
+-- Estructura de tabla para la tabla `compra`
 --
 
 CREATE TABLE `compra` (
@@ -96,41 +87,7 @@ CREATE TABLE `compra` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mascotas`
---
-
-CREATE TABLE `mascotas` (
-  `IdMascota` int(11) NOT NULL,
-  `Nombre` varchar(50) NOT NULL,
-  `Color` varchar(50) NOT NULL,
-  `Edad` int(11) NOT NULL,
-  `Raza` varchar(20) NOT NULL,
-  `Genero` enum('m','f') NOT NULL,
-  `IdMedicoV` int(11) NOT NULL,
-  `IdCliente` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `medicoveterinario`
---
-
-CREATE TABLE `medicoveterinario` (
-  `IdMedicoV` int(11) NOT NULL,
-  `Celular` varchar(20) NOT NULL,
-  `Nombre` varchar(50) NOT NULL,
-  `Apellido` varchar(50) NOT NULL,
-  `Especialidad` varchar(50) NOT NULL,
-  `Consultorio` char(3) NOT NULL,
-  `Genero` enum('m','f') NOT NULL,
-  `Correo` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `productos`
+-- Estructura de tabla para la tabla `productos`
 --
 
 CREATE TABLE `productos` (
@@ -147,7 +104,7 @@ CREATE TABLE `productos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `productos`
+-- Volcado de datos para la tabla `productos`
 --
 
 INSERT INTO `productos` (`IdProduc`, `IdCat`, `Codigo`, `Descripcion`, `Imagen`, `Stock`, `PrecioCompra`, `PrecioVenta`, `Ventas`, `Fecha`) VALUES
@@ -218,7 +175,7 @@ INSERT INTO `productos` (`IdProduc`, `IdCat`, `Codigo`, `Descripcion`, `Imagen`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -234,7 +191,7 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `usuarios`
+-- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `perfil`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
@@ -244,7 +201,7 @@ INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `perfil`, `foto`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ventas`
+-- Estructura de tabla para la tabla `ventas`
 --
 
 CREATE TABLE `ventas` (
@@ -261,125 +218,14 @@ CREATE TABLE `ventas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `categorias`
+-- Indices de la tabla `categorias`
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`IdCat`);
-
---
--- Indexes for table `citas`
---
-ALTER TABLE `citas`
-  ADD PRIMARY KEY (`IdCitas`),
-  ADD UNIQUE KEY `IdMedicoV` (`IdMedicoV`),
-  ADD UNIQUE KEY `IdCliente` (`IdCliente`),
-  ADD UNIQUE KEY `IdMascota` (`IdMascota`);
-
---
--- Indexes for table `clientes`
---
-ALTER TABLE `clientes`
-  ADD PRIMARY KEY (`idCliente`),
-  ADD UNIQUE KEY `IdMascolta` (`IdMascolta`);
-
---
--- Indexes for table `compra`
---
-ALTER TABLE `compra`
-  ADD PRIMARY KEY (`IdCompra`),
-  ADD UNIQUE KEY `idCliente` (`idCliente`),
-  ADD UNIQUE KEY `id` (`IdProduc`),
-  ADD UNIQUE KEY `idProducto` (`IdProduc`),
-  ADD UNIQUE KEY `IdProduc` (`IdProduc`);
-
---
--- Indexes for table `mascotas`
---
-ALTER TABLE `mascotas`
-  ADD PRIMARY KEY (`IdMascota`),
-  ADD UNIQUE KEY `IdCliente` (`IdCliente`),
-  ADD UNIQUE KEY `IdMedicoV` (`IdMedicoV`);
-
---
--- Indexes for table `productos`
---
-ALTER TABLE `productos`
-  ADD PRIMARY KEY (`IdProduc`),
-  ADD KEY `IdCat` (`IdCat`);
-
---
--- Indexes for table `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `ventas`
---
-ALTER TABLE `ventas`
-  ADD PRIMARY KEY (`idVenta`),
-  ADD UNIQUE KEY `idCliente` (`idCliente`),
-  ADD UNIQUE KEY `id_vendedor` (`id_vendedor`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `categorias`
---
-ALTER TABLE `categorias`
-  MODIFY `IdCat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
---
--- AUTO_INCREMENT for table `productos`
---
-ALTER TABLE `productos`
-  MODIFY `IdProduc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
-
---
--- AUTO_INCREMENT for table `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `citas`
---
-ALTER TABLE `citas`
-  ADD CONSTRAINT `citas_ibfk_1` FOREIGN KEY (`IdCliente`) REFERENCES `clientes` (`idCliente`);
-
---
--- Constraints for table `clientes`
---
-ALTER TABLE `clientes`
-  ADD CONSTRAINT `clientes_ibfk_1` FOREIGN KEY (`IdMascolta`) REFERENCES `mascotas` (`IdMascota`);
-
---
--- Constraints for table `compra`
---
-ALTER TABLE `compra`
-  ADD CONSTRAINT `compra_ibfk_1` FOREIGN KEY (`IdProduc`) REFERENCES `productos` (`IdProduc`);
-
---
--- Constraints for table `mascotas`
---
-ALTER TABLE `mascotas`
-  ADD CONSTRAINT `mascotas_ibfk_1` FOREIGN KEY (`IdMascota`) REFERENCES `citas` (`IdMascota`);
-
---
--- Constraints for table `productos`
---
-ALTER TABLE `productos`
-  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`IdCat`) REFERENCES `categorias` (`IdCat`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

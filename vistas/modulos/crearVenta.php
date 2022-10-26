@@ -50,16 +50,16 @@
                     
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                    <input type="text" class="form-control" name="nuevoVendedor" id="nuevoVendedor" value="<?php echo $_SESSION["nombre"];?>" readonly>
+                    <input type="text" class="form-control" id="nuevoVendedor" value="<?php echo $_SESSION["nombre"];?>" readonly>
 
-                    <input type="hidden" name="idVededor" value="<?php echo $_SESSION["id"];?>">
+                    <input type="hidden" name="idVendedor" value="<?php echo $_SESSION["id"];?>">
 
                   </div>
 
                 </div>
 
                 <!--========================
-                ENTRADA DE LA VENTA
+                ENTRADA DEL CODIGO
                 =====================-->
 
                 <div class="form-group">
@@ -149,11 +149,13 @@
 
                 </div> 
 
+                <input type="hidden" name="listaPorductos" id="listaPorductos">
+
                 <!--=============================
                   BOTON PARA AGREGAR PRODUCTO
                   ============================-->
 
-                  <button type="button" class="btn btn-default hidden-lg">Agregar producto</button>
+                  <button type="button" class="btn btn-default hidden-lg btnAgregarProducto">Agregar producto</button>
 
                   <hr>
 
@@ -180,7 +182,13 @@
 
                             <div class="input-group">
 
-                              <input type="number" class="form-control" min="0" name="nuevoImpuestoVenta" id="nuevoImpuestoVenta" placeholder="0" required>
+                              <input type="number" class="form-control input-lg" min="0" name="nuevoImpuestoVenta" id="nuevoImpuestoVenta" placeholder="0" required>
+
+                              <input type="hidden" name="nuevoPrecioImpuesto" id="nuevoPrecioImpuesto" required>
+
+                              <input type="hidden" name="nuevoPrecioNeto" id="nuevoPrecioNeto" required>
+
+
                               <span class="input-group-addon"><i class="fa fa-percent"></i></span>
                               
 
@@ -193,7 +201,9 @@
                             <div class="input-group">
 
                               <span class="input-group-addon"><i class="ion ion-social-usd"></i></span>
-                              <input type="number" class="form-control" min="0" name="nuevoTotalVenta" id="nuevoTotalVenta" placeholder="0000" required>
+                              <input type="text" class="form-control input-lg" min="0" name="nuevoTotalVenta" id="nuevoTotalVenta" total="" placeholder="0000" required>
+
+                              <input type="hidden" name="totalVenta" id="totalVenta">
                                                 
 
                             </div>
@@ -221,26 +231,19 @@
 
                         <select class="form-control" id="nuevoMetodoPago" name="nuevoMetodoPago" required>
                           <option value="">Seleccione método de pago</option>
-                          <option value="efectivo">Efectivo</option>
-                          <option value="tarjetaCredito">Tarjeta credito</option>
-                          <option value="tarjetaDebito">Tarjeta debito</option>
+                          <option value="Efectivo">Efectivo</option>
+                          <option value="TC">Tarjeta credito</option>
+                          <option value="TD">Tarjeta debito</option>
                         </select>
 
                       </div>
 
                     </div>
 
-                    <div class="col-xs-6" style="padding-left:0px">
+                    <div class="cajasMetodoPago"></div>
 
-                      <div class="input-group">
-
-                      <input type="text" class="form-control" name="nuevoCodigoTransaccion" id="nuevoCodigoTransaccion" placeholder="Código transacción" required>
-
-                      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-
-                      </div>
-                      
-                    </div>
+                    <input type="hidden" name="listaMetodoPago" id="listaMetodoPago">                      
+                   
 
                   </div>
 
@@ -258,6 +261,14 @@
           </div>
 
         </form>
+
+        <?php
+
+        $crearVenta = new ControladorVentas();
+        $crearVenta->ctrCrearVenta();
+
+        ?> 
+
           
         </div>
 

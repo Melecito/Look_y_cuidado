@@ -48,7 +48,7 @@ session_start();
       <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">
 
       <!-- iCheck for checkboxes and radio inputs -->
-  <link rel="stylesheet" href="vistas/plugins/iCheck/all.css">
+      <link rel="stylesheet" href="vistas/plugins/iCheck/all.css">
       
 
 
@@ -81,6 +81,11 @@ session_start();
       <script src="vistas/plugins/input-mask/jquery.inputmask.js"></script>
       <script src="vistas/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
       <script src="vistas/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+
+      <!-- jQuery Number -->
+      <script src="vistas/plugins/jqueryNumber/jqueryNumber.min.js"></script>
+
+      <!-- <script src="input-number-format.jquery.js"></script> -->
       
       
     </head>

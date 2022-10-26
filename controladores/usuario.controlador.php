@@ -234,6 +234,10 @@ class ControladorUsuarios{
 
 
 
+			
+
+
+
 
 				
 			}else{
@@ -267,14 +271,15 @@ class ControladorUsuarios{
 
 
 				</script>';
-				
+				}
 
 
 			
 			}
-
 		}
-	}
+
+		
+	
 
 	/**************************
 	 * metodo mostrar usuario *

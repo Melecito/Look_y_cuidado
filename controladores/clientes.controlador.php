@@ -100,7 +100,7 @@ class ControladorClientes{
 
 			   	$datos = array("IdCliente"=>$_POST["idCliente"],
 			   				   "Nombre"=>$_POST["editarCliente"],
-					           "Documento"=>$_POST["editarDocumentoId"],
+					           "Documento"=>$_POST["editarDocumentoID"],
 					           "email"=>$_POST["editarEmail"],
 					           "Telefono"=>$_POST["editarTelefono"],
 					           "Direccion"=>$_POST["editarDireccion"],
@@ -194,6 +194,85 @@ class ControladorClientes{
 		}
 
 	}
-}
 
+
+	static public function ctrDescargarReporte(){
+
+		if(isset($_GET["reporte"])){
+
+			// $tabla = "clientes";
+
+			$item = null;
+            $valor = null;
+
+            $clientes = ControladorClientes::ctrMostrarClientes( $item, $valor);
+			}
+
+
+			/*=============================================
+			CREAMOS EL ARCHIVO DE EXCEL
+			=============================================*/
+
+			$Name = $_GET["reporte"].'.xls';
+
+			header('Expires: 0');
+			header('Cache-control: private');
+			header("Content-type: application/vnd.ms-excel"); // Archivo de Excel
+			header("Cache-Control: cache, must-revalidate"); 
+			header('Content-Description: File Transfer');
+			header('Last-Modified: '.date('D, d M Y H:i:s'));
+			header("Pragma: public"); 
+			header('Content-Disposition:; filename="'.$Name.'"');
+			header("Content-Transfer-Encoding: binary");
+
+			echo utf8_decode("<table border='0'> 
+
+					<tr> 
+					<td style='font-weight:bold; border:1px solid #eee;'>idCliente</td> 
+					<td style='font-weight:bold; border:1px solid #eee;'>nombre</td>
+					<td style='font-weight:bold; border:1px solid #eee;'>documento</td>
+					<td style='font-weight:bold; border:1px solid #eee;'>email</td>
+					<td style='font-weight:bold; border:1px solid #eee;'>telefono</td>
+					<td style='font-weight:bold; border:1px solid #eee;'>direccion</td>
+					<td style='font-weight:bold; border:1px solid #eee;'>Fecha_nacimiento</td>		
+					<td style='font-weight:bold; border:1px solid #eee;'>compras</td>		
+					<td style='font-weight:bold; border:1px solid #eee;'>ultima</td	
+					<td style='font-weight:bold; border:1px solid #eee;'>FECHA</td>		
+					</tr>");
+
+			 $item = null;
+                $valor = null;
+
+                $clientes = ControladorClientes::ctrMostrarClientes($item, $valor);
+
+                foreach ($clientes as $key => $value) {
+                  
+                     echo utf8_decode( "<tr>
+
+                  <td style='border:1px solid #eee;'>".($key+1)."</td>
+                  <td style='border:1px solid #eee;'>".$value["Nombre"]."</td>
+                  <td style='border:1px solid #eee;'>".$value["Documento"]."</td>
+                  <td style='border:1px solid #eee;'>".$value["email"]."</td>
+                  <td style='border:1px solid #eee;'>".$value["Telefono"]."</td>
+                  <td style='border:1px solid #eee;'>".$value["Direccion"]."</td>
+                  <td style='border:1px solid #eee;'>".$value["Fecha_nacimiento"]."</td>
+                  <td style='border:1px solid #eee;'>".$value["Compras"]."</td>
+                  <td style='border:1px solid #eee;'>".$value["Ultima_compra"]."</td>
+                  <td style='border:1px solid #eee;'>".$value["Fecha"]."</td>                  
+
+                
+                  
+                </tr>");
+			}
+
+
+
+			echo "</table>";
+		}
+	}
+
+	
+
+
+			
 
