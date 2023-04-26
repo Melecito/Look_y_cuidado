@@ -13,6 +13,10 @@ class ControladorVentas{
 
 	}
 
+	/*-==================
+      Crear venta
+  	====================-*/
+
 
 	static public function ctrCrearVenta(){
 
@@ -22,9 +26,421 @@ class ControladorVentas{
                   ACTUALIZAR LAS COMPRAS DEL CLIENTE Y REDUCUIR EL STOCK Y AUMENTAR LAS VENTAS DE LOS PRODUCTOS
                   =======================================================-*/
 
+
+
                   $listaProductos = json_decode($_POST["listaProductos"], true);
-                  var_dump($listaProductos);
+
+                  $totalProductosComprados = array();
+
+                  foreach ($listaProductos as $key => $value){
+
+                  	array_push($totalProductosComprados, $value["Cantidad"]);
+
+                  	$tablaProductos = "productos";
+
+                  	$item = "IdProduc";
+                  	$valor = $value["IdProduc"];
+
+                  	$traerProducto = ModeloProductos::mdlMostrarProductos($tablaProductos, $item, $valor);
+
+                  	
+                  	$item1a = "Ventas";
+                  	$valor1a = $value["Cantidad"] + $traerProducto["Ventas"];
+
+                  	$nuevasVentas = ModeloProductos::mdlActualizarProducto($tablaProductos, $item1a, $valor1a, $valor);
+
+                  	$item1b = "Stock";
+                  	$valor1b = $value["Stock"];
+
+                  	$nuevoStock = ModeloProductos::mdlActualizarProducto($tablaProductos, $item1b, $valor1b, $valor);
+					
+				  }
+
+				  $tablaClientes = "clientes";
+
+				  $item = "IdCliente";
+				  $valor = $_POST['seleccionarCliente'];
+
+				  $traerCliente = ModeloClientes::mdlMostrarClientes($tablaClientes, $item, $valor);
+
+				  
+
+				  $item1a = "Compras";
+				  $valor1a = array_sum($totalProductosComprados) + $traerCliente["Compras"];
+
+				  $comprasCliente = ModeloClientes::mdlActualizarCliente($tablaClientes, $item1a, $valor1a, $valor);
+
+				  $item1b = "Ultima_compra";
+
+				  date_default_timezone_set('America/Bogota');
+
+				  $fecha = date('Y-m-d');
+				  $hora = date('H:i:s');
+				  $fechaActual = $fecha.' '.$hora;
+
+
+				  $valor1b = $fecha.' '.$hora;
+
+				  $comprasCliente = ModeloClientes::mdlActualizarCliente($tablaClientes, $item1b, $valor1b, $valor);
+
+				  /*==============================
+				  	Guardar la compra
+				  	==========================*/
+
+				  $tabla = "ventas";
+
+				  $datos = array("id_vendedor"=>$_POST["idVendedor"],
+			  					 "codigo"=>$_POST["nuevaVenta"],
+	                             "idCliente"=>$_POST["seleccionarCliente"],
+	                          	 "productos"=>$_POST["listaProductos"],
+	                             "impuesto"=>$_POST["nuevoPrecioImpuesto"],
+	                             "neto"=>$_POST["nuevoPrecioNeto"],
+	                             "total"=>$_POST["totalVenta"],
+	                             "metodo_pago"=>$_POST["listaMetodoPago"]);
+
+				  $respuesta = ModeloVentas::mdlIngresarVenta($tabla, $datos);
+
+				  if ($respuesta == "ok") {
+
+				  	echo'<script>
+
+				  	localStorage.removeItem("rango");
+
+				  	swal({
+				  		type: "success",
+				  		title: "La venta ha sido guardada correctamente",
+				  		showConfirmButton: true,
+				  		confirmButtonText: "Cerrar"
+				  		}).then((result) => {
+				  			if (result.value) {
+
+				  				window.location = "ventas";
+
+				  				}
+				  			})
+
+		  			</script>';
+
+				  }
+
+                 
 		}
 	}
-}
+
+	 public static function ctrEditarVenta()
+    {
+
+        if(isset($_POST["editarVenta"])) {
+
+            /*=============================================
+            FORMATEAR TABLA DE PRODUCTOS Y LA DE CLIENTES
+            =============================================*/
+            $tabla = "ventas";
+
+            $item = "codigo";
+            $valor = $_POST["editarVenta"];
+
+            $traerVenta = ModeloVentas::mdlMostrarVentas($tabla, $item, $valor);
+
+            /*=============================================
+            REVISAR SI VIENE PRODUCTOS EDITADOS
+            =============================================*/
+
+            if($_POST["listaProductos"] == "") {
+
+                $listaProductos = $traerVenta["productos"];
+                $cambioProducto = false;
+
+
+            } else {
+
+                $listaProductos = $_POST["listaProductos"];
+                $cambioProducto = true;
+            }
+
+            if($cambioProducto) {
+
+                $productos =  json_decode($traerVenta["productos"], true);
+
+                $totalProductosComprados = array();
+
+                foreach ($productos as $key => $value) {
+
+                    array_push($totalProductosComprados, $value["Cantidad"]);
+
+                    $tablaProductos = "productos";
+
+                    $item = "IdProduc";
+                    $valor = $value["IdProduc"];
+
+                    $traerProducto = ModeloProductos::mdlMostrarProductos($tablaProductos, $item, $valor);
+
+                    $item1a = "Ventas";
+                    $valor1a = $traerProducto["Ventas"] - $value["Cantidad"];
+
+                    $nuevasVentas = ModeloProductos::mdlActualizarProducto($tablaProductos, $item1a, $valor1a, $valor);
+
+                    $item1b = "Stock";
+                    $valor1b = $value["Cantidad"] + $traerProducto["Stock"];
+
+                    $nuevoStock = ModeloProductos::mdlActualizarProducto($tablaProductos, $item1b, $valor1b, $valor);
+
+                }
+
+                $tablaClientes = "clientes";
+
+                $itemCliente = "idCliente";
+                $valorCliente = $_POST["seleccionarCliente"];
+
+                $traerCliente = ModeloClientes::mdlMostrarClientes($tablaClientes, $itemCliente, $valorCliente);
+
+                $item1a = "Compras";
+                $valor1a = $traerCliente["Compras"] - array_sum($totalProductosComprados);
+
+                $comprasCliente = ModeloClientes::mdlActualizarCliente($tablaClientes, $item1a, $valor1a, $valorCliente);
+
+                /*=============================================
+                ACTUALIZAR LAS COMPRAS DEL CLIENTE Y REDUCIR EL STOCK Y AUMENTAR LAS VENTAS DE LOS PRODUCTOS
+                =============================================*/
+
+                $listaProductos_2 = json_decode($listaProductos, true);
+
+                $totalProductosComprados_2 = array();
+
+                foreach ($listaProductos_2 as $key => $value) {
+
+                    array_push($totalProductosComprados_2, $value["Cantidad"]);
+
+                    $tablaProductos_2 = "productos";
+
+                    $item_2 = "IdProduc";
+                    $valor_2 = $value["IdProduc"];
+
+                    $traerProducto_2 = ModeloProductos::mdlMostrarProductos($tablaProductos_2, $item_2, $valor_2);
+
+                    $item1a_2 = "Ventas";
+                    $valor1a_2 = $value["Cantidad"] + $traerProducto_2["Ventas"];
+
+                    $nuevasVentas_2 = ModeloProductos::mdlActualizarProducto($tablaProductos_2, $item1a_2, $valor1a_2, $valor_2);
+
+                    $item1b_2 = "Stock";
+                    $valor1b_2 = $traerProducto_2["Stock"] - $value["Cantidad"];
+
+                    $nuevoStock_2 = ModeloProductos::mdlActualizarProducto($tablaProductos_2, $item1b_2, $valor1b_2, $valor_2);
+
+                }
+
+                $tablaClientes_2 = "clientes";
+
+                $item_2 = "idCliente";
+                $valor_2 = $_POST["seleccionarCliente"];
+
+                $traerCliente_2 = ModeloClientes::mdlMostrarClientes($tablaClientes_2, $item_2, $valor_2);
+
+                $item1a_2 = "Compras";
+                $valor1a_2 = array_sum($totalProductosComprados_2) + $traerCliente_2["Compras"];
+
+                $comprasCliente_2 = ModeloClientes::mdlActualizarCliente($tablaClientes_2, $item1a_2, $valor1a_2, $valor_2);
+
+                $item1b_2 = "Ultima_compra";
+
+                date_default_timezone_set('America/Bogota');
+
+                $fecha = date('Y-m-d');
+                $hora = date('H:i:s');
+                $valor1b_2 = $fecha.' '.$hora;
+
+                $fechaCliente_2 = ModeloClientes::mdlActualizarCliente($tablaClientes_2, $item1b_2, $valor1b_2, $valor_2);
+
+            }
+
+            /*=============================================
+            GUARDAR CAMBIOS DE LA COMPRA
+            =============================================*/
+
+            $datos = array("id_vendedor"=>$_POST["idVendedor"],
+                           "idCliente"=>$_POST["seleccionarCliente"],
+                           "codigo"=>$_POST["editarVenta"],
+                           "productos"=>$listaProductos,
+                           "impuesto"=>$_POST["nuevoPrecioImpuesto"],
+                           "neto"=>$_POST["nuevoPrecioNeto"],
+                           "total"=>$_POST["totalVenta"],
+                           "metodo_pago"=>$_POST["listaMetodoPago"]);
+
+
+            $respuesta = ModeloVentas::mdlEditarVenta($tabla, $datos);
+
+            if($respuesta == "ok") {
+
+                echo'<script>
+
+				localStorage.removeItem("rango");
+
+				swal({
+					  type: "success",
+					  title: "La venta ha sido editada correctamente",
+					  showConfirmButton: true,
+					  confirmButtonText: "Cerrar"
+					  }).then((result) => {
+								if (result.value) {
+
+								window.location = "ventas";
+
+								}
+							})
+
+				</script>';
+
+            }
+
+        }
+
+    }
+
+    /*=============================================
+    ELIMINAR VENTA
+    =============================================*/
+
+    public static function ctrEliminarVenta()
+    {
+
+        if(isset($_GET["idVenta"])) {
+
+            $tabla = "ventas";
+
+            $item = "idVenta";
+            $valor = $_GET["idVenta"];
+
+            $traerVenta = ModeloVentas::mdlMostrarVentas($tabla, $item, $valor);
+
+            /*=============================================
+            ACTUALIZAR FECHA ÚLTIMA COMPRA
+            =============================================*/
+
+            $tablaClientes = "clientes";
+
+            $itemVentas = null;
+            $valorVentas = null;
+
+            $traerVentas = ModeloVentas::mdlMostrarVentas($tabla, $itemVentas, $valorVentas);
+
+            $guardarFechas = array();
+
+            foreach ($traerVentas as $key => $value) {
+
+                if($value["idCliente"] == $traerVenta["idCliente"]) {
+
+                    array_push($guardarFechas, $value["fecha"]);
+
+                }
+
+            }
+
+            if(count($guardarFechas) > 1) {
+
+                if($traerVenta["fecha"] > $guardarFechas[count($guardarFechas)-2]) {
+
+                    $item = "ultima_compra";
+                    $valor = $guardarFechas[count($guardarFechas)-2];
+                    $valorIdCliente = $traerVenta["idCliente"];
+
+                    $comprasCliente = ModeloClientes::mdlActualizarCliente($tablaClientes, $item, $valor, $valorIdCliente);
+
+                } else {
+
+                    $item = "ultima_compra";
+                    $valor = $guardarFechas[count($guardarFechas)-1];
+                    $valorIdCliente = $traerVenta["idCliente"];
+
+                    $comprasCliente = ModeloClientes::mdlActualizarCliente($tablaClientes, $item, $valor, $valorIdCliente);
+
+                }
+
+
+            } else {
+
+                $item = "ultima_compra";
+                $valor = "0000-00-00 00:00:00";
+                $valorIdCliente = $traerVenta["idCliente"];
+
+                $comprasCliente = ModeloClientes::mdlActualizarCliente($tablaClientes, $item, $valor, $valorIdCliente);
+
+            }
+
+            /*=============================================
+            FORMATEAR TABLA DE PRODUCTOS Y LA DE CLIENTES
+            =============================================*/
+
+            $productos =  json_decode($traerVenta["productos"], true);
+
+            $totalProductosComprados = array();
+
+            foreach ($productos as $key => $value) {
+
+                array_push($totalProductosComprados, $value["Cantidad"]);
+
+                $tablaProductos = "productos";
+
+                $item = "IdProduc";
+                $valor = $value["IdProduc"];
+
+                $traerProducto = ModeloProductos::mdlMostrarProductos($tablaProductos, $item, $valor);
+
+                $item1a = "Ventas";
+                $valor1a = $traerProducto["Ventas"] - $value["Cantidad"];
+
+                $nuevasVentas = ModeloProductos::mdlActualizarProducto($tablaProductos, $item1a, $valor1a, $valor);
+
+                $item1b = "Stock";
+                $valor1b = $value["Cantidad"] + $traerProducto["Stock"];
+
+                $nuevoStock = ModeloProductos::mdlActualizarProducto($tablaProductos, $item1b, $valor1b, $valor);
+
+            }
+
+            $tablaClientes = "clientes";
+
+            $itemCliente = "idCliente";
+            $valorCliente = $traerVenta["idCliente"];
+
+            $traerCliente = ModeloClientes::mdlMostrarClientes($tablaClientes, $itemCliente, $valorCliente);
+
+            $item1a = "Compras";
+            $valor1a = $traerCliente["Compras"] - array_sum($totalProductosComprados);
+
+            $comprasCliente = ModeloClientes::mdlActualizarCliente($tablaClientes, $item1a, $valor1a, $valorCliente);
+
+            /*=============================================
+            ELIMINAR VENTA
+            =============================================*/
+
+            $respuesta = ModeloVentas::mdlEliminarVenta($tabla, $_GET["idVenta"]);
+
+            if($respuesta == "ok") {
+
+                echo'<script>
+
+				swal({
+					  type: "success",
+					  title: "La venta ha sido borrada correctamente",
+					  showConfirmButton: true,
+					  confirmButtonText: "Cerrar",
+					  closeOnConfirm: false
+					  }).then((result) => {
+								if (result.value) {
+
+								window.location = "ventas";
+
+								}
+							})
+
+				</script>';
+            }
+        }
+
+    }
+  }
+	
+
+
 

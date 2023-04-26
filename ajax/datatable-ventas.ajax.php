@@ -10,7 +10,7 @@ class TablaProductosVentas{
 	Activar tabla de productos
 	=================================*/
 
-	public function mostrarTablaProductosVentas(){
+	public function mostrarTablaProductosVentas(){ 
 
 		$item = null;
 		$valor = null;

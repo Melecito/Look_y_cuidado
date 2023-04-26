@@ -49,6 +49,8 @@ session_start();
 
       <!-- iCheck for checkboxes and radio inputs -->
       <link rel="stylesheet" href="vistas/plugins/iCheck/all.css">
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.11.0/sweetalert2.css" />
       
 
 
@@ -74,7 +76,9 @@ session_start();
 
       <script src="vistas/bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
       <script src="vistas/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
-      <script src="vistas/plugins/sweetalert2/sweetalert2.all.js"></script>
+     <!--  <script src="vistas/plugins/sweetalert2/sweetalert2.all.js"></script>
+      <script src="vistas/plugins/sweetalert2/sweetalert2.all.min.js"></script> -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.11.0/sweetalert2.all.min.js"></script>
       <!-- iCheck 1.0.1 -->
       <script src="vistas/plugins/iCheck/icheck.min.js"></script>
       <!-- InputMask -->
@@ -85,7 +89,7 @@ session_start();
       <!-- jQuery Number -->
       <script src="vistas/plugins/jqueryNumber/jqueryNumber.min.js"></script>
 
-      <!-- <script src="input-number-format.jquery.js"></script> -->
+      
       
       
     </head>
@@ -133,24 +137,29 @@ session_start();
         if (isset($_GET['ruta'])) {
 
           if ($_GET['ruta']=="inicio"||
-            $_GET['ruta']=="usuario"||
-            $_GET['ruta']=="productos"||
-            $_GET['ruta']=="categorias"||
-            $_GET['ruta']=="clientes"||
-            $_GET['ruta']=="citas"||
-            $_GET['ruta']=="ventas"||
-            $_GET['ruta']=="crearVenta"||
-            $_GET['ruta']=="reporteVenta"||
-            $_GET['ruta']=="salir") {
+              $_GET['ruta']=="usuario"||
+              $_GET['ruta']=="productos"||
+              $_GET['ruta']=="categorias"||
+              $_GET['ruta']=="clientes"||
+              $_GET['ruta']=="ventas"||
+              $_GET['ruta']=="crearVenta"||
+              $_GET['ruta']=="editarVenta"||
+              $_GET['ruta']=="reportes"||
+              $_GET['ruta']=="salir") {
 
-            include "modulos/".$_GET['ruta'].".php";
-          }else{
+            include "modulos/".$_GET["ruta"].".php";
 
-            include "modulos/404.php";
+      }else{
 
-          }
-          
-        }
+        include "modulos/404.php";
+
+      }
+
+    }else{
+
+      include "modulos/inicio.php";
+
+    }
 
         
 

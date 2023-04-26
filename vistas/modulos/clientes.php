@@ -94,7 +94,7 @@
                   <td>'.$value["Direccion"].'</td>
                   <td>'.$value["Fecha_nacimiento"].'</td>
                   <td>'.$value["Compras"].'</td>
-                  <td>'.$value["Ultima_compra"].'</td>
+                  <td>'.$value["Ultima_compra"].'</td>          
                   <td>'.$value["Fecha"].'</td>                  
 
                  <td>                

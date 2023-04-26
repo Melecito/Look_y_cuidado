@@ -4,7 +4,7 @@
 
 
     <h1>
-      Crear venta
+      Editar venta
 
      
     </h1>
@@ -13,7 +13,7 @@
 
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
 
-      <li class="active">Crear venta</li>
+      <li class="active">Editar venta</li>
 
     </ol>
 
@@ -40,6 +40,28 @@
               
               <div class="box">
 
+                <?php
+
+                    $item = "idVenta";
+                    $valor = $_GET["idVenta"];
+
+                    $venta = ControladorVentas::ctrMostrarVentas($item, $valor);
+
+                    $itemUsuario = "id";
+                    $valorUsuario = $venta["id_vendedor"];
+
+                    $vendedor = ControladorUsuarios::ctrMostrarUsuarios($itemUsuario, $valorUsuario);
+
+                    $itemCliente = "idCliente";
+                    $valorCliente = $venta["idCliente"];
+
+                    $cliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
+
+                    $porcentajeImpuesto = $venta["impuesto"] * 100 / $venta["neto"];
+
+
+                ?>
+
                 <!--====================
                 ENTRADA DEL VENDEDOR
                 =====================-->
@@ -50,9 +72,9 @@
                     
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                    <input type="text" class="form-control" id="nuevoVendedor" value="<?php echo $_SESSION["nombre"];?>" readonly>
+                    <input type="text" class="form-control" id="nuevoVendedor" value="<?php echo $vendedor["nombre"];?>" readonly>
 
-                    <input type="hidden" name="idVendedor" value="<?php echo $_SESSION["id"];?>">
+                    <input type="hidden" name="idVendedor" value="<?php echo $vendedor["id"];?>">
 
                   </div>
 
@@ -68,34 +90,9 @@
                     
                     <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-                    <?php 
+                    <input type="text" class="form-control" name="editarVenta" id="nuevaVenta" value="<?php echo $venta["codigo"];?>" readonly>
 
-                    $item = null;
-                    $valor = null;
-
-                    $ventas = ControladorVentas::ctrMostrarVentas($item, $valor);
-
-                    if (!$ventas) {
-
-                      echo '<input type="text" class="form-control" name="nuevaVenta" id="nuevaVenta" value="10001" readonly>';
-
-                    }else{
-
-                      foreach ($ventas as $key => $value) {
-
-
-
-                      } 
-
-                      $codigo = $value["codigo"] +1;
-
-                       echo '<input type="text" class="form-control" name="nuevaVenta" id="nuevaVenta" value="'.$codigo.'" readonly>';
-
-                    }
-
-                    ?>
-
-                    
+                                      
 
                   </div>
 
@@ -113,7 +110,7 @@
 
                     <select class="form-control" name="seleccionarCliente" id="seleccionarCliente" required>
 
-                    <option value="">Seleccionar cliente</option>
+                    <option value="<?php echo $cliente["IdCliente"]; ?>"><?php echo $cliente["Nombre"]; ?></option>
 
                     <?php
 
@@ -144,6 +141,58 @@
                 =====================-->
 
                  <div class="form-group row nuevoProducto">
+
+
+                  <?php
+
+                      $listaProducto = json_decode($venta["productos"], true);
+
+                      foreach ($listaProducto as $key => $value) {
+
+                        $item = "IdProduc";
+                        $valor = $value["IdProduc"];
+
+                        $respuesta = ControladorProductos::ctrMostrarProductos($item, $valor);
+
+                        $stockAntiguo = $respuesta["Stock"] + $value["Cantidad"];
+                        
+                        echo '<div class="row" style="padding:5px 15px">
+                  
+                              <div class="col-xs-6" style="padding-right:0px">
+                  
+                                <div class="input-group">
+                      
+                                  <span class="input-group-addon"><button type="button" class="btn btn-danger btn-xs quitarProducto" idProducto="'.$value["IdProduc"].'"><i class="fa fa-times"></i></button></span>
+
+                                  <input type="text" class="form-control nuevaDescripcionProducto" idProducto="'.$value["IdProduc"].'" name="agregarProducto" value="'.$value["Descripcion"].'" readonly required>
+
+                                </div>
+
+                              </div>
+
+                              <div class="col-xs-3">
+                    
+                                <input type="number" class="form-control nuevaCantidadProducto" name="nuevaCantidadProducto" min="1" value="'.$value["Cantidad"].'" stock="'.$stockAntiguo.'" nuevoStock="'.$value["Stock"].'" required>
+
+                              </div>
+
+                              <div class="col-xs-3 ingresoPrecio" style="padding-left:0px">
+
+                                <div class="input-group">
+
+                                  <span class="input-group-addon"><i class="ion ion-social-usd"></i></span>
+                         
+                                  <input type="text" class="form-control nuevoPrecioProducto" precioReal="'.$respuesta["PrecioVenta"].'" name="nuevoPrecioProducto" value="'.$value["total"].'" readonly required>
+         
+                                </div>
+                     
+                              </div>
+
+                            </div>';
+                      }
+
+
+                ?>
 
                   
 
@@ -182,11 +231,11 @@
 
                             <div class="input-group">
 
-                              <input type="number" class="form-control input-lg" min="0" name="nuevoImpuestoVenta" id="nuevoImpuestoVenta" placeholder="0" required>
+                              <input type="number" class="form-control input-lg" min="0" name="nuevoImpuestoVenta" id="nuevoImpuestoVenta" value="<?php echo $porcentajeImpuesto; ?>" required>
 
-                              <input type="hidden" name="nuevoPrecioImpuesto" id="nuevoPrecioImpuesto" required>
+                              <input type="hidden" name="nuevoPrecioImpuesto" id="nuevoPrecioImpuesto" value="<?php echo $venta["impuesto"]; ?>" required>
 
-                              <input type="hidden" name="nuevoPrecioNeto" id="nuevoPrecioNeto" required>
+                              <input type="hidden" name="nuevoPrecioNeto" id="nuevoPrecioNeto"  value="<?php echo $venta["neto"]; ?>" required>
 
 
                               <span class="input-group-addon"><i class="fa fa-percent"></i></span>
@@ -202,9 +251,9 @@
 
                               <span class="input-group-addon"><i class="ion ion-social-usd"></i></span>
                               
-                              <input type="text" class="form-control input-lg" min="0" name="nuevoTotalVenta" id="nuevoTotalVenta" total="" placeholder="0000" required>
+                              <input type="text" class="form-control input-lg" min="0" name="nuevoTotalVenta" id="nuevoTotalVenta" total="<?php echo $venta["neto"]; ?>" value="<?php echo $venta["total"]; ?>" required>
 
-                              <input type="hidden" name="totalVenta" id="totalVenta">
+                              <input type="hidden" name="totalVenta" value="<?php echo $venta["total"]; ?>" id="totalVenta">
                                                 
 
                             </div>
@@ -256,7 +305,7 @@
 
           <div class="box-footer">
              
-            <button type="submit" class="btn btn-primary pull-right">Guardar venta</button>
+            <button type="submit" class="btn btn-primary pull-right">Guardar cambios</button>
             
 
           </div>
@@ -265,8 +314,8 @@
 
         <?php
 
-          $guardarVenta = new ControladorVentas();
-          $guardarVenta -> ctrCrearVenta();
+          $editarVenta = new ControladorVentas();
+          $editarVenta -> ctrEditarVenta();
 
           ?>
 

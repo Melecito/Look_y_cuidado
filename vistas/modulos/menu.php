@@ -75,18 +75,7 @@
 
       </li>
 
-      <li class="">
-
-        <a href="citas">
-
-          <i class="fa fa-stethoscope" aria-hidden="true"></i>
-          <span>Citas</span>
-
-
-        </a>
-
-
-      </li>
+      
 
       <li class="treeview">
 

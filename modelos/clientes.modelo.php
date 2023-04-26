@@ -90,6 +90,7 @@ class ModeloClientes{
 		}
 
 		$stmt->close();
+		
 		$stmt = null;
 	}
 
@@ -116,6 +117,39 @@ class ModeloClientes{
 		$stmt -> close();
 
 		$stmt = null;
+
+	}
+
+	/***********************
+	 * Actualizar cliente *
+	 * *********************/
+
+	 static public function mdlActualizarCliente($tabla, $item1, $valor1, $valor){
+
+
+		$stmt = Conexion::conectar()->prepare("UPDATE  $tabla SET $item1 = :$item1 WHERE IdCliente = :IdCliente");
+
+
+		$stmt ->bindParam(":".$item1, $valor1, PDO::PARAM_STR);		
+		$stmt ->bindParam(":IdCliente", $valor, PDO::PARAM_STR);
+
+		if ($stmt -> execute()) {
+
+
+			return "ok";
+
+		}else{
+
+
+			return "error";
+
+		}
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	
 
 	}
 

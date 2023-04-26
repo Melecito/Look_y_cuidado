@@ -3,12 +3,16 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
 
+      <div class="col-sm-6">
 
-      <h1>
-        Administrar usuarios
+          <h1>
+        Usuario
 
        
       </h1>
+
+        </div>
+      
 
       <ol class="breadcrumb">
         <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
@@ -16,6 +20,9 @@
       </ol>
 
     </section>
+    <br>
+    <br>
+    <br>
 
    
     <section class="content">
@@ -24,11 +31,11 @@
       <div class="box">
         <div class="box-header with-border">    
 
-          <button class="btn btn-primary" 
-          data-toggle="modal"
-          data-target="#modalAgregarUsuario">
-            Agregar usuario
-          </button>    
+           <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarUsuario">
+          
+          Agregar usuario
+
+        </button>   
 
           
         </div>
@@ -238,8 +245,7 @@
 
                     <option value="Cajero">Cajero</option>
 
-                    <option value="MedicoVet">Medico</option>
-                                  
+                                                      
 
 
                   </select>
