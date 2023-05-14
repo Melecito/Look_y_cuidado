@@ -24,28 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorias`
---
-
-CREATE TABLE `categorias` (
-  `IdCat` int(11) NOT NULL,
-  `categoria` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `categorias`
---
-
-INSERT INTO `categorias` (`IdCat`, `categoria`, `fecha`) VALUES
-(0, 'Peluches', '2023-04-26 00:00:50'),
-(1, 'Juguetería', '2022-06-27 20:31:05'),
-(2, 'Hogar', '2022-06-27 20:32:43'),
-(3, 'Salud', '2022-06-27 20:32:50'),
-(4, 'Arenas', '2022-06-28 17:17:21'),
-(5, 'Viajes', '2022-06-28 23:30:36'),
-(6, 'Comida', '2022-07-31 20:54:41'),
-(21, 'Belleza', '2022-08-07 13:57:32');
+-- 
 
 -- --------------------------------------------------------
 

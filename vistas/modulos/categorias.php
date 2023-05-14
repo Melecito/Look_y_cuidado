@@ -1,4 +1,19 @@
-<!-- Content Wrapper. Contains page content -->
+<?php
+
+if($_SESSION["perfil"] == "Vendedor"){
+
+  echo '<script>
+
+    window.location = "inicio";
+
+  </script>';
+
+  return;
+
+}
+
+?>
+
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -36,7 +51,7 @@
 
         <div class="box-body">
           
-          <table class="table table-bordered table-striped dt-responsive-responsive tablas">
+          <table class="table table-bordered table-striped dt-responsive tablas">
             
             <thead>
               
@@ -75,11 +90,15 @@
                   
                   <div class="btn-group">
 
-                    <button class="btn btn-warning btnEditarCategoria" idCategoria="'.$value["IdCat"].'" data-toggle="modal" data-target="#modalEditarCategoria"><i class="fa fa-pencil"></i></button>
+                    <button class="btn btn-warning btnEditarCategoria" idCategoria="'.$value["IdCat"].'" data-toggle="modal" data-target="#modalEditarCategoria"><i class="fa fa-pencil"></i></button>';
 
-                    <button class="btn btn-danger btnEliminarCategoria" idCategoria="'.$value["IdCat"].'"><i class="fa fa-times"></i></button>
+                    if($_SESSION["perfil"] == "Administrador"){
+
+                   echo '<button class="btn btn-danger btnEliminarCategoria" idCategoria="'.$value["IdCat"].'"><i class="fa fa-times"></i></button>';
+
+                  }
                     
-                  </div>
+                  echo '</div>
 
 
                 </td>

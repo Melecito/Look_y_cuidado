@@ -1,133 +1,141 @@
-<!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
+<?php
+
+if($_SESSION["perfil"] == "Especial"){
+
+  echo '<script>
+
+    window.location = "inicio";
+
+  </script>';
+
+  return;
+
+}
+
+?>
+<div class="content-wrapper">
+  
+  <section class="content-header">
 
 
-      <h1>
-        Administrar clientes
-
-       
-      </h1>
-
-      <ol class="breadcrumb">
-        <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li class="active">Administrar clientes</li>
-      </ol>
-
-    </section>
-
-   
-    <section class="content">
+    <h1>
+      Administrar clientes
 
      
-      <div class="box">
-        <div class="box-header with-border">    
+    </h1>
 
-          <button class="btn btn-primary" 
-          data-toggle="modal"
-          data-target="#modalAgregarCliente">
-            Agregar cliente
-          </button>
+    <ol class="breadcrumb">
+      <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
+      <li class="active">Administrar clientes</li>
+    </ol>
 
-          <div class="box-tools pull-right">
-
-           <?php echo '<a href="vistas/modulos/generarExcel.php?reporte=reporte">';?>
-
-            <button class="btn-success" style="margin-top: 5px;">generar excel</button>     
-
-            </a>   
-
-
-
-        </div>
-
-          
-        </div>
-
-        
-
-        <div class="box-body">
-          
-          <table class="table table-bordered table-striped dt-responsive-responsive tablas">
-            
-            <thead>
-              
-              <tr>
-                
-               <th style="width:10px">#</th>               
-               <th>Nombre</th>
-               <th>Documento ID</th>
-               <th>Email</th>
-               <th>Teléfono</th>
-               <th>Dirección</th>
-               <th>Fecha nacimiento</th> 
-               <th>Total compras</th>
-               <th>Última compra</th>
-               <th>Ingreso al sistema</th>
-               <th>Acciones</th>
-
-
-              </tr>
-
-
-            </thead>
-
-            <tbody>
-
-              <?php
-
-                $item = null;
-                $valor = null;
-
-                $clientes = ControladorClientes::ctrMostrarClientes($item, $valor);
-
-                foreach ($clientes as $key => $value) {
-                  
-                     echo '<tr>
-
-                  <td>'.($key+1).'</td>
-                  <td>'.$value["Nombre"].'</td>
-                  <td>'.$value["Documento"].'</td>
-                  <td>'.$value["email"].'</td>
-                  <td>'.$value["Telefono"].'</td>
-                  <td>'.$value["Direccion"].'</td>
-                  <td>'.$value["Fecha_nacimiento"].'</td>
-                  <td>'.$value["Compras"].'</td>
-                  <td>'.$value["Ultima_compra"].'</td>          
-                  <td>'.$value["Fecha"].'</td>                  
-
-                 <td>                
-                    
-                    <div class="btn-group">
-
-                      <button class="btn btn-warning btnEditarCliente" idCliente="'.$value["IdCliente"].'" data-toggle="modal" data-target="#modalEditarCliente"><i class="fa fa-pencil"></i></button>
-
-                      <button class="btn btn-danger btnEliminarCliente" idCliente="'.$value["IdCliente"].'"><i class="fa fa-times"></i></button>
-                      
-                    </div>
-
-
-                  </td>
-                  
-                </tr>';
-                }
-
-              ?>
-
-             </tbody>
-            
-          </table>
-
-
-        </div>
-      
-      </div>
-
-    </section>
-
+  </section>
+ 
+  <section class="content">
    
-  </div>
+    <div class="box">
+      <div class="box-header with-border">    
+
+        <button class="btn btn-primary" 
+        data-toggle="modal"
+        data-target="#modalAgregarCliente">
+          Agregar cliente
+        </button>
+
+          <!--  -->
+      </div>        
+     
+
+      <div class="box-body">
+        
+        <table class="table table-bordered table-striped dt-responsive tablas">
+          
+          <thead>
+            
+            <tr>
+              
+             <th style="width:10px">#</th>               
+             <th>Nombre</th>
+             <th>Documento ID</th>
+             <th>Email</th>
+             <th>Teléfono</th>
+             <th>Dirección</th>
+             <th>Fecha nacimiento</th> 
+             <th>Total compras</th>
+             <th>Última compra</th>
+             <th>Ingreso al sistema</th>
+             <th>Acciones</th>
+
+
+            </tr>
+
+
+          </thead>
+
+          <tbody>
+
+            <?php
+
+              $item = null;
+              $valor = null;
+
+              $clientes = ControladorClientes::ctrMostrarClientes($item, $valor);
+
+              foreach ($clientes as $key => $value) {
+                
+                   echo '<tr>
+
+                <td>'.($key+1).'</td>
+                <td>'.$value["Nombre"].'</td>
+                <td>'.$value["Documento"].'</td>
+                <td>'.$value["email"].'</td>
+                <td>'.$value["Telefono"].'</td>
+                <td>'.$value["Direccion"].'</td>
+                <td>'.$value["Fecha_nacimiento"].'</td>
+                <td>'.$value["Compras"].'</td>
+                <td>'.$value["Ultima_compra"].'</td>          
+                <td>'.$value["Fecha"].'</td>                  
+
+               <td>                
+                  
+                  <div class="btn-group">
+
+                    <button class="btn btn-warning btnEditarCliente" idCliente="'.$value["IdCliente"].'" data-toggle="modal" data-target="#modalEditarCliente"><i class="fa fa-pencil"></i></button>';
+
+                    if($_SESSION["perfil"] == "Administrador"){
+
+                    echo '<button class="btn btn-danger btnEliminarCliente" idCliente="'.$value["IdCliente"].'"><i class="fa fa-times"></i></button>';
+
+                  }
+                    
+                  echo '</div>
+
+
+                </td>
+                
+              </tr>';
+              }
+
+            ?>
+
+           </tbody>
+          
+        </table>
+        
+        </div>   
+
+      </div>     
+
+
+    </div>
+    
+    
+
+  </section>
+
+ 
+</div>
+
 
 
   

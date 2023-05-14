@@ -51,6 +51,11 @@ session_start();
       <link rel="stylesheet" href="vistas/plugins/iCheck/all.css">
 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.11.0/sweetalert2.css" />
+
+     <link rel="stylesheet" href="vistas/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+
+     <!-- Morris chart -->
+     <link rel="stylesheet" href="vistas/bower_components/morris.js/morris.css">
       
 
 
@@ -62,32 +67,52 @@ session_start();
 
       <!-- jQuery 3 -->
       <script src="vistas/bower_components/jquery/dist/jquery.min.js"></script>
+
       <!-- Bootstrap 3.3.7 -->
       <script src="vistas/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
       <!-- SlimScroll -->
       <script src="vistas/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
       <!-- FastClick -->
       <script src="vistas/bower_components/fastclick/lib/fastclick.js"></script>
+
       <!-- AdminLTE App -->
       <script src="vistas/dist/js/adminlte.min.js"></script>
+
       <!-- DataTables -->
       <script src="vistas/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
       <script src="vistas/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
       <script src="vistas/bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
       <script src="vistas/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
+
      <!--  <script src="vistas/plugins/sweetalert2/sweetalert2.all.js"></script>
       <script src="vistas/plugins/sweetalert2/sweetalert2.all.min.js"></script> -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.11.0/sweetalert2.all.min.js"></script>
+
       <!-- iCheck 1.0.1 -->
       <script src="vistas/plugins/iCheck/icheck.min.js"></script>
+
       <!-- InputMask -->
       <script src="vistas/plugins/input-mask/jquery.inputmask.js"></script>
       <script src="vistas/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
       <script src="vistas/plugins/input-mask/jquery.inputmask.extensions.js"></script>
 
+
       <!-- jQuery Number -->
       <script src="vistas/plugins/jqueryNumber/jqueryNumber.min.js"></script>
+
+      <!-- daterangepicker http://www.daterangepicker.com/-->
+      <script src="vistas/bower_components/moment/min/moment.min.js"></script>
+      <script src="vistas/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+      <!-- Morris.js charts http://morrisjs.github.io/morris.js/-->
+      <script src="vistas/bower_components/raphael/raphael.min.js"></script>
+      <script src="vistas/bower_components/morris.js/morris.min.js"></script>
+
+      <!-- ChartJS http://www.chartjs.org/-->
+      <script src="vistas/bower_components/Chart.js/Chart.js"></script>
 
       
       
@@ -186,8 +211,9 @@ session_start();
     <script src="vistas/js/categorias.js"></script>
     <script src="vistas/js/productos.js"></script>
     <script src="vistas/js/clientes.js"></script>
-    <script src="vistas/js/citas.js"></script>
     <script src="vistas/js/ventas.js"></script>
+    <script src="vistas/js/reportes.js"></script>
+    
     
     </body>
 

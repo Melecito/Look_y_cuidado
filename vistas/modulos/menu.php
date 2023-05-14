@@ -119,10 +119,10 @@
 
           <li>
 
-            <a href="reporteVenta">
+            <a href="reportes">
               
               <i class="fa fa-circle-o"></i>
-              <span>Reporte de ventas</span>
+              <span>Reportes de ventas</span>
 
             </a>
 

@@ -1,4 +1,18 @@
-<!-- Content Wrapper. Contains page content -->
+<?php
+
+if($_SESSION["perfil"] == "Especial"){
+
+  echo '<script>
+
+    window.location = "inicio";
+
+  </script>';
+
+  return;
+
+}
+
+?>
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -29,12 +43,22 @@
             Agregar ventas
           </button>    
           </a>
+
+          <button type="button" class="btn btn-default pull-right" id="daterange-btn">
+           
+            <span>
+              <i class="fa fa-calendar"></i> Rango de fecha
+            </span>
+
+            <i class="fa fa-caret-down"></i>
+
+          </button>
           
         </div>
 
         <div class="box-body">
           
-          <table class="table table-bordered table-striped dt-responsive-responsive tablas">
+          <table class="table table-bordered table-striped dt-responsive tablas">
             
             <thead>
               
@@ -60,10 +84,18 @@
 
               <?php
 
-                $item = null;
-                $valor = null;
+              if(isset($_GET["fechaInicial"])){
 
-                $respuesta = ControladorVentas::ctrMostrarVentas($item, $valor);
+                $fechaInicial = $_GET["fechaInicial"]; 
+                $fechaFinal = $_GET["fechaFinal"];
+
+              }else{
+                $fechaInicial = null;
+                $fechaFinal = null;
+              }
+                
+
+                $respuesta = ControladorVentas::ctrRangoFechasVentas($fechaInicial, $fechaFinal);
 
 
                 foreach ($respuesta as $key => $value) {
@@ -101,13 +133,17 @@
 
                           <div class="btn-group">
                               
-                            <button class="btn btn-info"><i class="fa fa-print"></i></button>
+                            <button class="btn btn-info btnImprimirFactura" codigoVenta="'.$value["codigo"].'"><i class="fa fa-print"></i></button>';
 
-                            <button class="btn btn-warning btnEditarVenta" idVenta="'.$value["idVenta"].'"><i class="fa fa-pencil"></i></button>
+                             if($_SESSION["perfil"] == "Administrador"){
 
-                            <button class="btn btn-danger btnEliminarVenta" idVenta="'.$value["idVenta"].'"><i class="fa fa-times"></i></button>
+                            echo '<button class="btn btn-warning btnEditarVenta" idVenta="'.$value["idVenta"].'"><i class="fa fa-pencil"></i></button>
 
-                          </div>  
+                            <button class="btn btn-danger btnEliminarVenta" idVenta="'.$value["idVenta"].'"><i class="fa fa-times"></i></button>';
+
+                          }
+
+                          echo '</div>  
 
                         </td>
 

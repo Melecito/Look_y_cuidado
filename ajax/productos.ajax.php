@@ -13,8 +13,9 @@ class AjaxProductos{
 
 		$item = "IdCat";
 		$valor = $this->idCategoria;
+		$orden = "IdProduc";
 
-		$respuesta = ControladorProductos::ctrMostrarProductos($item, $valor);
+		$respuesta = ControladorProductos::ctrMostrarProductos($item, $valor, $orden);
 
 
 		
@@ -36,8 +37,9 @@ class AjaxProductos{
 
  			$item = null;
 			$valor = null;
+			$orden = "IdProduc";
 
-			$respuesta = ControladorProductos::ctrMostrarProductos($item, $valor);
+			$respuesta = ControladorProductos::ctrMostrarProductos($item, $valor, $orden);
 
 			echo json_encode($respuesta);
 
@@ -46,8 +48,9 @@ class AjaxProductos{
 
 		$item = "Descripcion";
 		$valor = $this->nombreProducto;
+		$orden = "IdProduc";
 
-		$respuesta = ControladorProductos::ctrMostrarProductos($item, $valor);
+		$respuesta = ControladorProductos::ctrMostrarProductos($item, $valor, $orden);
 
 		echo json_encode($respuesta);
 
@@ -56,8 +59,9 @@ class AjaxProductos{
 
 		$item = "IdProduc";
 		$valor = $this->idProducto;
+		$orden = "IdProduc";
 
-		$respuesta = ControladorProductos::ctrMostrarProductos($item, $valor);
+		$respuesta = ControladorProductos::ctrMostrarProductos($item, $valor, $orden);
 
 		echo json_encode($respuesta);
 
