@@ -92,6 +92,8 @@
 
              <h1>Bienvenid@ ' .$_SESSION["nombre"].'</h1>
 
+             <h2>'.$_SESSION["perfil"].'</h2>
+
              </div>
 
              </div>';

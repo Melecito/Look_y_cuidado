@@ -13,6 +13,7 @@ Cargar la tabla dinamica de productos
 
 
 // })
+var perfilOculto = $("#perfilOculto").val();
 
 
 $('.tablaProductos').DataTable( {

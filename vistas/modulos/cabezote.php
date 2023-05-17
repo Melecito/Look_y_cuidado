@@ -66,12 +66,17 @@
 								echo '<img src="vistas/img/usuarios/default/anonymous.png" class="user-image">';
 							}
 
+							
+
 
 							?>
 
+
 							
 
-							<span class="hidden-xs"><?php echo $_SESSION ['nombre']; ?></span>						
+							<span class="hidden-xs form-group"><?php echo $_SESSION ['nombre'];  
+
+							 ?></span>						
 
 
 						</a>
@@ -83,8 +88,8 @@
 								<li class="user-body">
 
 
-									<div class="pull-right">
-
+									<div class="pull-right form-group">
+										<?php echo  $_SESSION["perfil"];?>
 										<a href="salir" class="btn btn-default btn-flat">Salir</a>
 										
 									</div>				
