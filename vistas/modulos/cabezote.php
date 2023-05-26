@@ -11,7 +11,7 @@
 			<span class="logo-mini">
 				
 
-				<img src="vistas/img/plantilla/image.png" class="img-responsive" style="padding: 10px;">
+				<img src="vistas/img/plantilla/logo-max.png" class="img-responsive" style="padding: 10px;">
 
 
 			</span>
@@ -21,7 +21,7 @@
 			<span class="logo-lg">
 				
 
-				<img src="vistas/img/plantilla/logo-letras.png" class="img-responsive" style="padding: 10px 0px;">
+				<img src="vistas/img/plantilla/imagen9.png" class="img-responsive" style="padding: 10px 0px;">
 
 
 			</span>
