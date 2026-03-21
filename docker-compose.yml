@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - look_network
+
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: look_y_cuidado
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      # Opcional: Si quieres que cargue tu SQL al iniciar:
+      - ./vistas/script/look_y_cuidado.sql:/docker-entrypoint-initdb.d/db.sql
+    networks:
+      - look_network
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+    depends_on:
+      - db
+    networks:
+      - look_network
+
+networks:
+  look_network:
+    driver: bridge
+
+volumes:
+  db_data:

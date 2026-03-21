@@ -27,30 +27,34 @@ class ModeloProductos
     }
 
     /*=============================================
-    REGISTRAR PRODUCTO
+    REGISTRO DE PRODUCTO
     =============================================*/
     static public function mdlIngresarProducto($tabla, $datos)
     {
-        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(IdCat, Codigo, Descripcion, Imagen, Stock, PrecioCompra, PrecioVenta) VALUES (:IdCat, :Codigo, :Descripcion, :Imagen, :Stock, :PrecioCompra, :PrecioVenta)");
+        // 1. Definimos la consulta (8 tokens: IdCat, Codigo, Descripcion, Imagen, Stock, PrecioCompra, PrecioVenta, Ventas)
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(IdCat, Codigo, Descripcion, Imagen, Stock, PrecioCompra, PrecioVenta, Ventas) VALUES (:IdCat, :Codigo, :Descripcion, :Imagen, :Stock, :PrecioCompra, :PrecioVenta, :Ventas)");
 
-        $stmt->bindParam(":IdCat", $datos["IdCat"], PDO::PARAM_STR);
+        // 2. Vinculamos cada token (Asegúrate de que los nombres coincidan exactamente)
+        $stmt->bindParam(":IdCat", $datos["IdCat"], PDO::PARAM_INT);
         $stmt->bindParam(":Codigo", $datos["Codigo"], PDO::PARAM_STR);
         $stmt->bindParam(":Descripcion", $datos["Descripcion"], PDO::PARAM_STR);
         $stmt->bindParam(":Imagen", $datos["Imagen"], PDO::PARAM_STR);
         $stmt->bindParam(":Stock", $datos["Stock"], PDO::PARAM_STR);
         $stmt->bindParam(":PrecioCompra", $datos["PrecioCompra"], PDO::PARAM_STR);
         $stmt->bindParam(":PrecioVenta", $datos["PrecioVenta"], PDO::PARAM_STR);
+        
+        // 3. Para las Ventas, como es un producto nuevo, forzamos el 0
+        $ventasIniciales = 0;
+        $stmt->bindParam(":Ventas", $ventasIniciales, PDO::PARAM_INT);
 
         if ($stmt->execute()) {
-            $respuesta = "ok";
+            return "ok";
         } else {
-            $respuesta = "error";
+            return "error";
         }
 
         $stmt->closeCursor();
         $stmt = null;
-
-        return $respuesta;
     }
 
     /*=============================================

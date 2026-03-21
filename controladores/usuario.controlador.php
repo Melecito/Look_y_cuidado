@@ -361,7 +361,7 @@ class ControladorUsuarios{
 
 						$ruta = "vistas/img/usuarios/".$_POST["editarUsuario"]."/".$aleatorio.".jpeg";
 
-						$origen = imagecreatefromjpg($_FILES["editarFoto"]["tmp_name"]);
+						$origen = imagecreatefromjpeg($_FILES["editarFoto"]["tmp_name"]);
 
 
 						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);

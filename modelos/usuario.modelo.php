@@ -31,13 +31,23 @@ class ModeloUsuarios
     =============================================*/
     static public function mdlIngresarUsuario($tabla, $datos)
     {
-        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, usuario, password, perfil, foto) VALUES (:nombre, :usuario, :password, :perfil, :foto)");
+        // Se incluyen explícitamente 'estado' y 'ultimo_login' para evitar errores de modo estricto
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, usuario, password, perfil, foto, estado, ultimo_login) VALUES (:nombre, :usuario, :password, :perfil, :foto, :estado, :ultimo_login)");
 
         $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
         $stmt->bindParam(":usuario", $datos["usuario"], PDO::PARAM_STR);
         $stmt->bindParam(":password", $datos["password"], PDO::PARAM_STR);
         $stmt->bindParam(":perfil", $datos["perfil"], PDO::PARAM_STR);
         $stmt->bindParam(":foto", $datos["foto"], PDO::PARAM_STR);
+        
+        // Definimos estado activo por defecto
+        $estado = 1;
+        $stmt->bindParam(":estado", $estado, PDO::PARAM_INT);
+
+        // Enviamos NULL para evitar el error 'Incorrect datetime value' (0000-00-00)
+        // RECUERDA: La columna 'ultimo_login' en phpMyAdmin debe permitir NULL
+        $fechaInicial = null;
+        $stmt->bindParam(":ultimo_login", $fechaInicial, PDO::PARAM_NULL);
 
         if ($stmt->execute()) {
             $respuesta = "ok";
@@ -77,14 +87,15 @@ class ModeloUsuarios
     }
 
     /*=============================================
-    ACTUALIZAR USUARIO
+    ACTUALIZAR USUARIO (Estado y Último Login)
     =============================================*/
     static public function mdlActualizarUsuario($tabla, $item1, $valor1, $item2, $valor2)
     {
         $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET $item1 = :$item1 WHERE $item2 = :$item2");
 
-        $stmt->bindParam(":".$item1, $valor1, PDO::PARAM_STR);
-        $stmt->bindParam(":".$item2, $valor2, PDO::PARAM_STR);
+        // Usamos bindValue para permitir que PDO maneje dinámicamente si es String o Int
+        $stmt->bindValue(":".$item1, $valor1);
+        $stmt->bindValue(":".$item2, $valor2);
 
         if ($stmt->execute()) {
             $respuesta = "ok";
@@ -101,10 +112,10 @@ class ModeloUsuarios
     /*=============================================
     BORRAR USUARIO
     =============================================*/
-    static public function mdlBorrarUsuario($tabla, $datos)
+    static public function mdlBorrarUsuario($tabla, $id)
     {
         $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
-        $stmt->bindParam(":id", $datos, PDO::PARAM_INT);
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
 
         if ($stmt->execute()) {
             $respuesta = "ok";
