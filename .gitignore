@@ -1,0 +1,4 @@
+vistas/img/usuarios/*
+vistas/img/productos/*
+!vistas/img/usuarios/default/
+!vistas/img/productos/default/
